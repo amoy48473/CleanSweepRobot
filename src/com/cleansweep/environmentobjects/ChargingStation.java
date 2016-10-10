@@ -1,3 +1,4 @@
+package com.cleansweep.environmentobjects;
 
 public class ChargingStation implements EnvironmentObject{
 	public ChargingStation(){
