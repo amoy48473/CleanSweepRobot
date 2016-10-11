@@ -9,10 +9,12 @@ import java.io.IOException;
 
 public class Driver {
 
-	public static void main(String[] args) throws IOException, InvalidBarrierException, InvalidEnvironmentObjectException, BumpException, CleanException {
+	public static void main(String[] args) throws IOException, InvalidBarrierException, InvalidEnvironmentObjectException, BumpException, CleanException, InterruptedException {
 		SensorSimulator s = new SensorSimulator(0,9,"floorplan.txt");
+		ControlSimulator c = new ControlSimulator(s);
 
-		
+		c.run();
+
 	}
 
 }

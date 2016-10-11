@@ -5,6 +5,7 @@ import com.cleansweep.barriers.Door;
 import com.cleansweep.barriers.NoBarrier;
 import com.cleansweep.barriers.Wall;
 import com.cleansweep.dataobjects.Node;
+import com.cleansweep.dataobjects.Point;
 import com.cleansweep.enums.Direction;
 import com.cleansweep.enums.FloorType;
 import com.cleansweep.environmentobjects.*;
@@ -24,6 +25,15 @@ public class SensorSimulator {
     private int height;
     private Node[][] grid;
 
+    /**
+     * Constructor that takes a text file along with starting coordinates to create a grid
+     * @param x
+     * @param y
+     * @param textFile
+     * @throws IOException
+     * @throws InvalidBarrierException
+     * @throws InvalidEnvironmentObjectException
+     */
     public SensorSimulator(int x, int y, String textFile) throws IOException, InvalidBarrierException, InvalidEnvironmentObjectException {
         this.x = x;
         this.y = y;
@@ -82,6 +92,11 @@ public class SensorSimulator {
         }
     }
 
+    /**
+     * Checks whether the passed in direction is blocking
+     * @param direction
+     * @return
+     */
     public boolean getNavigationSensor(Direction direction) {
         if (direction == Direction.North) {
             if (y == 0) {
@@ -130,7 +145,17 @@ public class SensorSimulator {
         }
     }
 
-    public void move(Direction direction) throws BumpException {
+    /**
+     * Movies the robot to direction. validates that direction is not blocking
+     * @param direction
+     * @throws BumpException
+     */
+    public void move(Direction direction) throws BumpException, InterruptedException {
+        Thread.sleep(1000);
+
+        System.out.println("Moving: " + direction);
+
+
         if (direction == Direction.North) {
             if (y == 0) {
                 throw new BumpException("Clean Sweep bumped into an obstruction");
@@ -178,6 +203,29 @@ public class SensorSimulator {
         }
     }
 
+    public void reverse(Direction direction) throws InterruptedException, BumpException {
+        switch (direction){
+            case North:
+                move(Direction.South);
+                break;
+            case East:
+                move(Direction.West);
+                break;
+            case South:
+                move(Direction.North);
+                break;
+            case West:
+                move(Direction.East);
+                break;
+            default:
+                return;
+        }
+    }
+
+    /**
+     * Gets the current surface that the robot is currently on
+     * @return
+     */
     public FloorType getCurrentSurface() {
         if (grid[x][y].getEnvironmentObject() instanceof Floor) {
             return ((Floor) grid[x][y].getEnvironmentObject()).getFloorType();
@@ -186,6 +234,11 @@ public class SensorSimulator {
         }
     }
 
+    /**
+     * Gets the surface of the destination if heading in the specific direction
+     * @param direction
+     * @return
+     */
     public FloorType getSurface(Direction direction) {
         if (direction == Direction.North) {
             if (y == 0) {
@@ -243,6 +296,11 @@ public class SensorSimulator {
         return FloorType.NotFloor;
     }
 
+    public Point getPoint(){
+        return new Point(x, y);
+    }
+
+
     public boolean getDirtSensor() {
         if (grid[x][y].getEnvironmentObject() instanceof Floor) {
             if (((Floor) grid[x][y].getEnvironmentObject()).getDirtUnits() > 0) {
@@ -250,6 +308,14 @@ public class SensorSimulator {
             }
         }
         return false;
+    }
+
+    public int getWidth(){
+        return width;
+    }
+
+    public int getHeight(){
+        return height;
     }
 
     public void clean() throws CleanException {
