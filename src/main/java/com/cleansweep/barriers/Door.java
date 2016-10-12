@@ -16,7 +16,7 @@ public class Door implements Barrier {
     }
 
     public boolean isBlocking() {
-        return isOpen;
+        return !isOpen;
     }
 
 }

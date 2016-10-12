@@ -1,31 +1,44 @@
 package com.cleansweep;
 
+import com.cleansweep.dataobjects.ControlSimulatorNode;
 import com.cleansweep.dataobjects.Point;
 import com.cleansweep.enums.Direction;
 import com.cleansweep.exceptions.BumpException;
 import com.cleansweep.exceptions.CleanException;
 
+import javax.swing.*;
 import java.util.*;
+import java.util.List;
 
 /**
  * Created by allenmoy on 10/10/16.
  */
-public class ControlSimulator {
+public class ControlSimulator{
 
 
     private SensorSimulator sensorSimulator;
 
     private Stack<Point> stack  = new Stack<Point>();
 
+    private JFrame jFrame;
 
-    private boolean[][] traversed;
+
+
+    private ControlSimulatorNode[][] nodes;
 
     public ControlSimulator(SensorSimulator sensorSimulator){
         this.sensorSimulator = sensorSimulator;
 
         stack.add(sensorSimulator.getPoint());
         //fullyCleaned = new boolean[sensorSimulator.getHeight()][sensorSimulator.getWidth()];
-        traversed = new boolean[sensorSimulator.getHeight()][sensorSimulator.getWidth()];
+        nodes = new ControlSimulatorNode[sensorSimulator.getHeight()][sensorSimulator.getWidth()];
+        for (int i=0; i<nodes.length; i++){
+            ControlSimulatorNode[] row = nodes[i];
+            for (int j=0; j< row.length; j++){
+
+                nodes[i][j] = new ControlSimulatorNode();
+            }
+        }
     }
 
     private void search(Point root) throws BumpException, InterruptedException, CleanException {
@@ -33,7 +46,7 @@ public class ControlSimulator {
         if (root == null) return;
 
         // Set this point as visited
-        traversed[root.getY()][root.getX()] = true;
+        nodes[root.getY()][root.getX()].setVisited(true);
 
         // For every neighbor
         for (Direction direction : Direction.values()){
@@ -41,7 +54,7 @@ public class ControlSimulator {
 
             // if point is not blocked and we have not visited there, the depth first search
             if (sensorSimulator.getNavigationSensor(direction)
-                && !traversed[calculatedPoint.getY()][calculatedPoint.getX()]){
+                && !nodes[calculatedPoint.getY()][calculatedPoint.getX()].isVisited()){
                 moveSensorSimulator(sensorSimulator, direction);
                 search(sensorSimulator.getPoint());
             }
@@ -59,9 +72,11 @@ public class ControlSimulator {
     }
 
     private void moveSensorSimulator(SensorSimulator sim, Direction direction) throws InterruptedException, BumpException {
+        Thread.sleep(500);
+
         sensorSimulator.move(direction);
 
-        System.out.println("------------------------------------------------------------------------");
+       /* System.out.println("------------------------------------------------------------------------");
         for (int i=0; i<sensorSimulator.getHeight(); i++){
             for (int j=0; j<sensorSimulator.getWidth(); j++){
                 System.out.print(" | " + (traversed[i][j] ? "1" : "0") + " | ");
@@ -69,7 +84,9 @@ public class ControlSimulator {
             System.out.println();
         }
 
-        System.out.println("------------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------");*/
+
+        jFrame.repaint();
 
 
 
@@ -174,9 +191,17 @@ public class ControlSimulator {
         return new Point(destX, destY);
     }
 
-    public void run() throws BumpException, InterruptedException, CleanException {
+    public void run(JFrame frame) throws BumpException, InterruptedException, CleanException {
+        this.jFrame = frame;
 
        search(sensorSimulator.getPoint());
     }
+
+    public ControlSimulatorNode[][] getNodes(){
+        return nodes;
+    }
+
+
+
 
 }
