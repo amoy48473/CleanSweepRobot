@@ -151,9 +151,7 @@ public class SensorSimulator {
      * @throws BumpException
      */
     public void move(Direction direction) throws BumpException, InterruptedException {
-        Thread.sleep(1000);
-
-        System.out.println("Moving: " + direction);
+        Thread.sleep(100);
 
 
         if (direction == Direction.North) {
@@ -201,7 +199,13 @@ public class SensorSimulator {
             }
             x--;
         }
+
+
+        //System.out.println("Moving: " + direction + " to: "+ x+ ", " +  y );
+
     }
+
+
 
     public void reverse(Direction direction) throws InterruptedException, BumpException {
         switch (direction){
@@ -220,6 +224,7 @@ public class SensorSimulator {
             default:
                 return;
         }
+
     }
 
     /**
