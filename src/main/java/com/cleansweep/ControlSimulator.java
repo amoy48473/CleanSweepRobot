@@ -55,9 +55,16 @@ public class ControlSimulator{
             // if point is not blocked and we have not visited there, the depth first search
             if (sensorSimulator.getNavigationSensor(direction)
                 && !nodes[calculatedPoint.getY()][calculatedPoint.getX()].isVisited()){
+
+                nodes[root.getY()][root.getX()].setOpen(direction);
+
                 moveSensorSimulator(sensorSimulator, direction);
                 search(sensorSimulator.getPoint());
+            } else if (!sensorSimulator.getNavigationSensor(direction)){
+                nodes[root.getY()][root.getX()].setBlocking(direction);
             }
+
+
 
             // After moving and return, find the shortest path back to origin
             //System.out.printf("Traversing back from (%d, %d) to (%d, %d) ", sensorSimulator.getPoint().getX(), sensorSimulator.getPoint().getY(),
@@ -75,16 +82,6 @@ public class ControlSimulator{
         Thread.sleep(500);
 
         sensorSimulator.move(direction);
-
-       /* System.out.println("------------------------------------------------------------------------");
-        for (int i=0; i<sensorSimulator.getHeight(); i++){
-            for (int j=0; j<sensorSimulator.getWidth(); j++){
-                System.out.print(" | " + (traversed[i][j] ? "1" : "0") + " | ");
-            }
-            System.out.println();
-        }
-
-        System.out.println("------------------------------------------------------------------------");*/
 
         jFrame.repaint();
 
@@ -199,6 +196,10 @@ public class ControlSimulator{
 
     public ControlSimulatorNode[][] getNodes(){
         return nodes;
+    }
+
+    public Point getCurrentLocation(){
+        return sensorSimulator.getPoint();
     }
 
 

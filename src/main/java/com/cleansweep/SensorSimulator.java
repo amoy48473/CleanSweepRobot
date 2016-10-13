@@ -326,4 +326,6 @@ public class SensorSimulator {
     public void clean() throws CleanException {
         ((Floor) grid[x][y].getEnvironmentObject()).clean();
     }
+
+
 }

@@ -1,6 +1,5 @@
 package com.cleansweep.dataobjects;
 
-import java.util.List;
 
 /**
  * Created by allenmoy on 10/10/16.

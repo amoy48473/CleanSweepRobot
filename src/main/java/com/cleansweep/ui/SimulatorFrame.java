@@ -32,30 +32,37 @@ public class SimulatorFrame extends JPanel{
 
             for (int j = 0; j < nodes[i].length; j++) {
 
-                // TODO: Work in progress
                 ControlSimulatorNode node = nodes[i][j];
                 // draw top line
-                if (node.isTopBlocking() || true){
-                    //g.drawLine(i*cellHeight, j*cellWidth, j*cellHeight, (j*cellHeight)+cellHeight);
+                if (node.isTopBlocking() ){
+                    g.drawLine(j*cellWidth, i*cellHeight, (j*cellWidth+cellWidth),  i*cellHeight);
                 }
 
                 // draw bottom line
-                if (node.isDownBlocking() || true){
-
+                if (node.isDownBlocking()){
+                    g.drawLine(j*cellWidth, (i*cellHeight+cellHeight), j*cellWidth+cellWidth, i*cellHeight+cellHeight );  ;
                 }
 
                 // draw right line
-                if (node.isRightBlocking() || true){
-
+                if (node.isRightBlocking()){
+                    g.drawLine((j*cellWidth+cellWidth),  i*cellHeight, j*cellWidth+cellWidth, i*cellHeight+cellHeight);
                 }
 
                 // draw left line
-                if (node.isLeftBlocking() || true){
+                if (node.isLeftBlocking()){
+                    g.drawLine(j*cellWidth, i*cellHeight, j*cellWidth, (i*cellHeight+cellHeight));
 
                 }
 
-                //g.drawRect(j*cellWidth, i*cellHeight, cellWidth, cellHeight);
-                g.drawString((node.isVisited() ? "1" : "0"), j*cellWidth, i*cellHeight);
+                com.cleansweep.dataobjects.Point currentLocation = controlSimulator.getCurrentLocation();
+                if (i==currentLocation.getY() && j==currentLocation.getX()){
+                    g.setColor(Color.RED);
+                    g.fillRect(j * cellWidth, i * cellHeight, cellWidth, cellHeight);
+                    g.setColor(Color.black);
+                }
+
+                g.drawString((node.isVisited() ? "1" : "0"), (j * cellWidth) + ((int) (0.5 * cellWidth)), (i*cellHeight)+((int)(0.5*cellHeight)));
+
             }
 
         }
