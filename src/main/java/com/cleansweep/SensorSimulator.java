@@ -25,6 +25,9 @@ public class SensorSimulator {
     private int height;
     private Node[][] grid;
 
+    // Grid cannot be cleaned twice in a row without moving
+    boolean gridJustCleaned = false;
+
     /**
      * Constructor that takes a text file along with starting coordinates to create a grid
      * @param x
@@ -151,8 +154,8 @@ public class SensorSimulator {
      * @throws BumpException
      */
     public void move(Direction direction) throws BumpException, InterruptedException {
-        Thread.sleep(100);
-
+        // Robot moved, you man clean again
+        gridJustCleaned = false;
 
         if (direction == Direction.North) {
             if (y == 0) {
@@ -324,8 +327,20 @@ public class SensorSimulator {
     }
 
     public void clean() throws CleanException {
+        if (gridJustCleaned){
+            throw new CleanException("Floor is just cleaned. Cannot clean twice in row without moving");
+        }
         ((Floor) grid[x][y].getEnvironmentObject()).clean();
+
+        // Floor cleaned, a move is required before next move
+        gridJustCleaned = true;
     }
+
+    public boolean isGridJustCleaned(){
+        return gridJustCleaned;
+    }
+
+
 
 
 }

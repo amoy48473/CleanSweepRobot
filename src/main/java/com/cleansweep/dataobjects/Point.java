@@ -1,10 +1,13 @@
 package com.cleansweep.dataobjects;
 
 
+
+
 /**
  * Created by allenmoy on 10/10/16.
  */
 public class Point {
+
 
     private int x;
 
@@ -35,4 +38,6 @@ public class Point {
     public String toString(){
         return x + "" + y;
     }
+
+
 }

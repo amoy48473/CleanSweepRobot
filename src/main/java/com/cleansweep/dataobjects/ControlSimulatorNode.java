@@ -19,6 +19,21 @@ public class ControlSimulatorNode {
 
     }
 
+    public boolean isBlocking(Direction direction){
+        switch (direction){
+            case North:
+                return topBlocking;
+            case East:
+                return rightBlocking;
+            case South:
+                return downBlocking;
+            case West:
+                return leftBlocking;
+            default:
+                return false;
+        }
+    }
+
     public void setBlocking(Direction direction){
         switch (direction){
             case North:
