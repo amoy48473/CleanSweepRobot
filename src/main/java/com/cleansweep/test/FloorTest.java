@@ -82,18 +82,19 @@ public class FloorTest {
 	 */
 	@Test
 	public void testClean() {
+
+		Floor floor;
+
 		try
 		{
-			new Floor(-1, FloorType.HighPile).clean();
-		}
-		catch(IllegalArgumentException i)
-		{
-			assertTrue(i.getMessage().equals("Dirt units cannot be negative"));
+			floor = new Floor(0, FloorType.HighPile);
+			floor.clean();
 		}
 		catch(CleanException c)
 		{
 			assertTrue(c.getMessage().equals("Cannot clean a floor that is already clean"));
 		}
+
 	}
 
 }
