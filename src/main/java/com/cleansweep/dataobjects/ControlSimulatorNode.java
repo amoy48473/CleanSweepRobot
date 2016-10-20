@@ -11,6 +11,8 @@ public class ControlSimulatorNode {
 
     private boolean visited;
 
+    private boolean cleaned;
+
     private EnvironmentObject environmentObject;
 
     private boolean leftBlocking, topBlocking, rightBlocking, downBlocking;
@@ -108,5 +110,13 @@ public class ControlSimulatorNode {
 
     public void setVisited(boolean visited) {
         this.visited = visited;
+    }
+
+    public boolean isCleaned() {
+        return cleaned;
+    }
+
+    public void setCleaned(boolean cleaned) {
+        this.cleaned = cleaned;
     }
 }

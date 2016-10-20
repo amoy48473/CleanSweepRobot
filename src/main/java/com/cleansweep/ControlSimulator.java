@@ -61,12 +61,12 @@ public class ControlSimulator{
         for (Direction direction : Direction.values()){
             Point calculatedPoint = getCalculatedPoint(direction, root);
 
-            // if point is not blocked and we have not visited there, the depth first search
+            // if point is not blocked and we have not cleaned there, the depth first search
             if (sensorSimulator.getNavigationSensor(direction)){
 
                 nodes[root.getY()][root.getX()].setOpen(direction);
 
-                if (!nodes[calculatedPoint.getY()][calculatedPoint.getX()].isVisited()){
+                if (!nodes[calculatedPoint.getY()][calculatedPoint.getX()].isCleaned()){
                     stack.push(calculatedPoint);
                 }
             } else if (!sensorSimulator.getNavigationSensor(direction)){
@@ -78,7 +78,9 @@ public class ControlSimulator{
 
         while (!stack.isEmpty()){
             Point destPoint = stack.pop();
-            if (nodes[destPoint.getY()][destPoint.getX()].isVisited()) continue;
+
+            if (nodes[destPoint.getY()][destPoint.getX()].isCleaned() &&
+                    nodes[destPoint.getY()][destPoint.getX()].isVisited() ) continue;
 
             List<Direction> path = bfsToDestination(getCurrentLocation(), destPoint);
 
@@ -89,7 +91,16 @@ public class ControlSimulator{
 
                 // If there is dirt here then clean it
                 if (sensorSimulator.getDirtSensor()) {
+
                     sensorSimulator.clean();
+
+                    Point currentPoint = sensorSimulator.getPoint();
+
+
+                    // If there is still dirt here, then add it back in stack to come back later
+                    if (!sensorSimulator.getDirtSensor()){
+                        nodes[currentPoint.getY()][currentPoint.getX()].setCleaned(true);
+                    }
                 }
             }
 
@@ -99,7 +110,7 @@ public class ControlSimulator{
     }
 
     private void moveSensorSimulator(SensorSimulator sim, Direction direction) throws InterruptedException, BumpException {
-        Thread.sleep(500);
+        Thread.sleep(300);
 
         sensorSimulator.move(direction);
 

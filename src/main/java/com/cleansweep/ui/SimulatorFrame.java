@@ -61,7 +61,7 @@ public class SimulatorFrame extends JPanel{
                     g.setColor(Color.black);
                 }
 
-                g.drawString((node.isVisited() ? "1" : "0"), (j * cellWidth) + ((int) (0.5 * cellWidth)), (i*cellHeight)+((int)(0.5*cellHeight)));
+                g.drawString((node.isCleaned() ? "1" : "0"), (j * cellWidth) + ((int) (0.5 * cellWidth)), (i*cellHeight)+((int)(0.5*cellHeight)));
 
             }
 
