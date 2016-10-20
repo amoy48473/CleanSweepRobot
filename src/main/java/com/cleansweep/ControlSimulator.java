@@ -110,7 +110,7 @@ public class ControlSimulator{
     }
 
     private void moveSensorSimulator(SensorSimulator sim, Direction direction) throws InterruptedException, BumpException {
-        Thread.sleep(300);
+        Thread.sleep(500);
 
         sensorSimulator.move(direction);
 
