@@ -1,6 +1,8 @@
 package com.cleansweep;
 
 import com.cleansweep.dataobjects.ControlSimulatorNode;
+import com.cleansweep.dataobjects.DirtCapacity;
+import com.cleansweep.dataobjects.EmptyMeIndicator;
 import com.cleansweep.dataobjects.Point;
 import com.cleansweep.enums.Direction;
 import com.cleansweep.exceptions.BumpException;
@@ -25,10 +27,15 @@ public class ControlSimulator{
 
 
     private ControlSimulatorNode[][] nodes;
-
+    
+    private DirtCapacity dirtCapacity;
+    
+ 
     public ControlSimulator(SensorSimulator sensorSimulator){
         this.sensorSimulator = sensorSimulator;
+        this.dirtCapacity = new DirtCapacity();
 
+        
         //fullyCleaned = new boolean[sensorSimulator.getHeight()][sensorSimulator.getWidth()];
         nodes = new ControlSimulatorNode[sensorSimulator.getHeight()][sensorSimulator.getWidth()];
         for (int i=0; i<nodes.length; i++){
@@ -100,6 +107,11 @@ public class ControlSimulator{
                     // If there is still dirt here, then add it back in stack to come back later
                     if (!sensorSimulator.getDirtSensor()){
                         nodes[currentPoint.getY()][currentPoint.getX()].setCleaned(true);
+                    }
+                    
+                    if(sensorSimulator.isGridJustCleaned()){
+                    	dirtCapacity.updateDirtCapacity(); 
+
                     }
                 }
             }
