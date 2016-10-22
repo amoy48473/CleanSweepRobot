@@ -4,9 +4,13 @@ import com.cleansweep.dataobjects.ControlSimulatorNode;
 import com.cleansweep.dataobjects.DirtCapacity;
 import com.cleansweep.dataobjects.EmptyMeIndicator;
 import com.cleansweep.dataobjects.Point;
+import com.cleansweep.dataobjects.PowerLevel;
 import com.cleansweep.enums.Direction;
+import com.cleansweep.enums.DirtCapacityStatus;
+import com.cleansweep.enums.FloorType;
 import com.cleansweep.exceptions.BumpException;
 import com.cleansweep.exceptions.CleanException;
+import com.cleansweep.exceptions.InvalidEnvironmentObjectException;
 
 import javax.swing.*;
 import java.util.*;
@@ -30,11 +34,13 @@ public class ControlSimulator{
     
     private DirtCapacity dirtCapacity;
     
+    private PowerLevel powerLevel;
+    
  
     public ControlSimulator(SensorSimulator sensorSimulator){
         this.sensorSimulator = sensorSimulator;
         this.dirtCapacity = new DirtCapacity();
-
+        this.powerLevel = new PowerLevel();
         
         //fullyCleaned = new boolean[sensorSimulator.getHeight()][sensorSimulator.getWidth()];
         nodes = new ControlSimulatorNode[sensorSimulator.getHeight()][sensorSimulator.getWidth()];
@@ -56,7 +62,7 @@ public class ControlSimulator{
      * @throws InterruptedException
      * @throws CleanException
      */
-    private void search(Point root) throws BumpException, InterruptedException, CleanException {
+    private void search(Point root) throws BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException {
 
         if (root == null) return;
 
@@ -110,7 +116,14 @@ public class ControlSimulator{
                     }
                     
                     if(sensorSimulator.isGridJustCleaned()){
-                    	dirtCapacity.updateDirtCapacity(); 
+                    	dirtCapacity.updateDirtCapacity();
+                    	if(dirtCapacity.isMaxDirtCapacity()){
+                    		dirtCapacity.setDirtCapacityStatus(DirtCapacityStatus.Full);
+                    	}else if(dirtCapacity.getDirtCapacity() > 0 && dirtCapacity.getDirtCapacity() < DirtCapacity.MAX_DIRT_CAPACITY){
+                    		dirtCapacity.setDirtCapacityStatus(DirtCapacityStatus.NotFull);
+                    	}
+                    	FloorType currentFloorType = sensorSimulator.getCurrentSurface();
+                    	powerLevel.updatePowerLevel(currentFloorType);
 
                     }
                 }
@@ -242,7 +255,7 @@ public class ControlSimulator{
         return new Point(destX, destY);
     }
 
-    public void run(JFrame frame) throws BumpException, InterruptedException, CleanException {
+    public void run(JFrame frame) throws BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException {
         this.jFrame = frame;
 
        search(sensorSimulator.getPoint());
