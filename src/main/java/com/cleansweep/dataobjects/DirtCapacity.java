@@ -5,7 +5,7 @@ import com.cleansweep.enums.DirtCapacityStatus;
 public class DirtCapacity {
     private int dirtCapacity;
     private DirtCapacityStatus dirtCapacityStatus;
-    public static  final int MAX_DIRT_CAPACITY = 5;
+    public static  final int MAX_DIRT_CAPACITY = 50;
     
     public DirtCapacity(){
     	this.dirtCapacity = 0;
