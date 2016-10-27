@@ -117,11 +117,7 @@ public class ControlSimulator{
                     
                     if(sensorSimulator.isGridJustCleaned()){
                     	dirtCapacity.updateDirtCapacity();
-                    	if(dirtCapacity.isMaxDirtCapacity()){
-                    		dirtCapacity.setDirtCapacityStatus(DirtCapacityStatus.Full);
-                    	}else if(dirtCapacity.getDirtCapacity() > 0 && dirtCapacity.getDirtCapacity() < DirtCapacity.MAX_DIRT_CAPACITY){
-                    		dirtCapacity.setDirtCapacityStatus(DirtCapacityStatus.NotFull);
-                    	}
+
                     	FloorType currentFloorType = sensorSimulator.getCurrentSurface();
                     	powerLevel.updatePowerLevel(currentFloorType);
 

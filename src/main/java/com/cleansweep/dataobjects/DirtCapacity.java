@@ -16,6 +16,7 @@ public class DirtCapacity {
     public void updateDirtCapacity()
     {
     	dirtCapacity++;
+    	updateDirtCapacityStatus();
     }
     
     public int getDirtCapacity(){
@@ -30,8 +31,14 @@ public class DirtCapacity {
     	return MAX_DIRT_CAPACITY;
     }
     
+    public void setDirtCapacity(int dirtCap){
+    	dirtCapacity = dirtCap;
+    	updateDirtCapacityStatus();
+    }
+    
     public void emptyDirtTray(){
     	dirtCapacity = 0;
+    	updateDirtCapacityStatus();
     }
     
     public boolean isDirtTrayEmpty(){
@@ -42,6 +49,19 @@ public class DirtCapacity {
     	dirtCapacityStatus = dirtCapStatus;
     }
     
+    public DirtCapacityStatus getDirtCapacityStatus(){
+    	return dirtCapacityStatus;
+    }
+    
+    public void updateDirtCapacityStatus(){
+    	if(isMaxDirtCapacity()){
+        	dirtCapacityStatus = DirtCapacityStatus.Full;
+    	}else if(dirtCapacity > 0 && dirtCapacity < MAX_DIRT_CAPACITY){
+        	dirtCapacityStatus = DirtCapacityStatus.NotFull;
+    	}else{
+        	dirtCapacityStatus = DirtCapacityStatus.Empty;
+    	}
+    }
 
 
 }

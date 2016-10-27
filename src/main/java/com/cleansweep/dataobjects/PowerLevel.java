@@ -10,7 +10,7 @@ import com.cleansweep.exceptions.InvalidEnvironmentObjectException;
 public class PowerLevel {
 	
 	private int powerLevel;
-    List<FloorType> floorTypes;
+    private List<FloorType> floorTypes;
 	public static final int MAX_POWER_LEVEL = 100;
 	public static final int Low_Power_Level = 25;
 	
@@ -23,12 +23,16 @@ public class PowerLevel {
 		return powerLevel;
 	}
 	
+	public void setPowerLevel(int power){
+		powerLevel = power;
+	}
+	
 	public boolean isPowerLow(){
 		return powerLevel < Low_Power_Level;
 	}
 	
 	public boolean isSweeperFullyCharged(){
-		return powerLevel < MAX_POWER_LEVEL;
+		return powerLevel == MAX_POWER_LEVEL;
 	}
 	
 	public int getPowerUnits(FloorType floor)throws InvalidEnvironmentObjectException{
@@ -67,8 +71,12 @@ public class PowerLevel {
 		
 	}
 	
-	public void clearPreviousFloorTypes(){
+	private void clearPreviousFloorTypes(){
 		floorTypes.clear();
+	}
+	
+	public void charge(){
+		powerLevel = MAX_POWER_LEVEL;
 	}
 	
 	
