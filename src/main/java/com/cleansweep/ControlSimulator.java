@@ -1,5 +1,6 @@
 package com.cleansweep;
 
+import com.cleansweep.dataobjects.ActivityLog;
 import com.cleansweep.dataobjects.ControlSimulatorNode;
 import com.cleansweep.dataobjects.DirtCapacity;
 import com.cleansweep.dataobjects.EmptyMeIndicator;
@@ -13,6 +14,8 @@ import com.cleansweep.exceptions.CleanException;
 import com.cleansweep.exceptions.InvalidEnvironmentObjectException;
 
 import javax.swing.*;
+
+import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
@@ -28,7 +31,7 @@ public class ControlSimulator{
 
     private JFrame jFrame;
 
-
+    private ActivityLog activityLogData;
 
     private ControlSimulatorNode[][] nodes;
     
@@ -36,11 +39,15 @@ public class ControlSimulator{
     
     private PowerLevel powerLevel;
     
+    private EmptyMeIndicator emptyMeIndicator;
+    
  
     public ControlSimulator(SensorSimulator sensorSimulator){
         this.sensorSimulator = sensorSimulator;
         this.dirtCapacity = new DirtCapacity();
         this.powerLevel = new PowerLevel();
+        this.activityLogData = new ActivityLog();
+        this.emptyMeIndicator = new EmptyMeIndicator();
         
         //fullyCleaned = new boolean[sensorSimulator.getHeight()][sensorSimulator.getWidth()];
         nodes = new ControlSimulatorNode[sensorSimulator.getHeight()][sensorSimulator.getWidth()];
@@ -62,7 +69,7 @@ public class ControlSimulator{
      * @throws InterruptedException
      * @throws CleanException
      */
-    private void search(Point root) throws BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException {
+    private void search(Point root) throws IOException, BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException {
 
         if (root == null) return;
 
@@ -76,6 +83,10 @@ public class ControlSimulator{
 
             // if point is not blocked and we have not cleaned there, the depth first search
             if (sensorSimulator.getNavigationSensor(direction)){
+                activityLogData.activityLog.write(new Date() + " Checking directional sensor: " + 
+                		(sensorSimulator.getNavigationSensor(direction) ? direction + " Direction: Clear Path" : direction + " Direction: Blocked Path"));
+                activityLogData.activityLog.flush();
+                activityLogData.activityLog.newLine(); 
 
                 nodes[root.getY()][root.getX()].setOpen(direction);
 
@@ -83,6 +94,10 @@ public class ControlSimulator{
                     stack.push(calculatedPoint);
                 }
             } else if (!sensorSimulator.getNavigationSensor(direction)){
+                activityLogData.activityLog.write(new Date() + " Checking directional sensor: " + 
+                		(sensorSimulator.getNavigationSensor(direction) ? direction + " Direction: Clear Path" : direction + " Direction: Blocked Path"));
+                activityLogData.activityLog.flush();
+                activityLogData.activityLog.newLine(); 
                 nodes[root.getY()][root.getX()].setBlocking(direction);
             }
 
@@ -90,6 +105,8 @@ public class ControlSimulator{
         }
 
         while (!stack.isEmpty()){
+        	
+
             Point destPoint = stack.pop();
 
             if (nodes[destPoint.getY()][destPoint.getX()].isCleaned() &&
@@ -101,11 +118,22 @@ public class ControlSimulator{
 
             for (Direction direction: path){
                 moveSensorSimulator(sensorSimulator, direction);
+                activityLogData.activityLog.write(new Date() + " Moving to current point(x,y): (" + sensorSimulator.getPoint().getX() + "," 
+             	+ sensorSimulator.getPoint().getY()  + 
+             	"); FloorType: " + sensorSimulator.getCurrentSurface());
+                activityLogData.activityLog.flush();
+                activityLogData.activityLog.newLine();            
 
+                	
                 // If there is dirt here then clean it
                 if (sensorSimulator.getDirtSensor()) {
+                    activityLogData.activityLog.write(new Date() + " Checking Dirt Sensor: " + (sensorSimulator.getDirtSensor() ? "Floor Dirty" : "Floor Clean"));
+                    activityLogData.activityLog.flush();
+                    activityLogData.activityLog.newLine();
 
                     sensorSimulator.clean();
+
+                    
 
                     Point currentPoint = sensorSimulator.getPoint();
 
@@ -113,20 +141,37 @@ public class ControlSimulator{
                     // If there is still dirt here, then add it back in stack to come back later
                     if (!sensorSimulator.getDirtSensor()){
                         nodes[currentPoint.getY()][currentPoint.getX()].setCleaned(true);
+                        activityLogData.activityLog.write(new Date() + " Checking Dirt Sensor: " + (sensorSimulator.getDirtSensor() ? "Floor Dirty" : "Floor Clean"));
+                        activityLogData.activityLog.flush();
+                        activityLogData.activityLog.newLine();
                     }
                     
                     if(sensorSimulator.isGridJustCleaned()){
                     	dirtCapacity.updateDirtCapacity();
-
+                    	if(dirtCapacity.isMaxDirtCapacity()){
+                    		emptyMeIndicator.turnOnEmptyMeIndicator();
+                    	}
+                        activityLogData.activityLog.write(new Date() + " Cleaning current point(x,y): (" + currentPoint.getX() + "," 
+                    	+ currentPoint.getY() + "); Dirt Capacity: " + dirtCapacity.getDirtCapacity() +
+                    	"; Dirt Status: " + dirtCapacity.getDirtCapacityStatus() + 
+                    	"; FloorType: " + sensorSimulator.getCurrentSurface() + "; EmptyMeIndicator:" + 
+                    	(emptyMeIndicator.getEmptyMeIndicator() ? "ON" : "OFF"));
+                        activityLogData.activityLog.flush();
+                        activityLogData.activityLog.newLine();            
                     	FloorType currentFloorType = sensorSimulator.getCurrentSurface();
                     	powerLevel.updatePowerLevel(currentFloorType);
+                        activityLogData.activityLog.write(new Date() + " Updating power level: " + powerLevel.getPowerLevel() + 
+                        		(powerLevel.isPowerLow() ? "; Power Level is Low!" : "; Power Level is OK."));
+                        activityLogData.activityLog.flush();
+                        activityLogData.activityLog.newLine();  
 
                     }
                 }
             }
 
             search(sensorSimulator.getPoint());
-        }
+
+            }
 
     }
 
@@ -251,10 +296,11 @@ public class ControlSimulator{
         return new Point(destX, destY);
     }
 
-    public void run(JFrame frame) throws BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException {
+    public void run(JFrame frame) throws IOException, BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException {
         this.jFrame = frame;
 
        search(sensorSimulator.getPoint());
+
     }
 
     public ControlSimulatorNode[][] getNodes(){
