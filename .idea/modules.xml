@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CleanSweepRobot.iml" filepath="$PROJECT_DIR$/CleanSweepRobot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Main/Main.iml" filepath="$PROJECT_DIR$/Main/Main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Robot/Robot.iml" filepath="$PROJECT_DIR$/Robot/Robot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Simulator/Simulator.iml" filepath="$PROJECT_DIR$/Simulator/Simulator.iml" />
     </modules>
   </component>
 </project>

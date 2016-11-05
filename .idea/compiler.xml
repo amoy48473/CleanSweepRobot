@@ -22,11 +22,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="CleanSweepRobot" />
+        <module name="Main" />
+        <module name="Robot" />
+        <module name="Simulator" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="CleanSweepRobot" target="1.5" />
+      <module name="Main" target="1.5" />
+      <module name="Robot" target="1.5" />
+      <module name="Simulator" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

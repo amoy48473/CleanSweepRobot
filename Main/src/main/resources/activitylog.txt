@@ -1,0 +1,151 @@
+Sat Nov 05 16:02:24 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:24 EDT 2016 Checking directional sensor: South Direction: Blocked Path
+Sat Nov 05 16:02:24 EDT 2016 Checking directional sensor: East Direction: Clear Path
+Sat Nov 05 16:02:24 EDT 2016 Checking directional sensor: West Direction: Blocked Path
+Sat Nov 05 16:02:24 EDT 2016 Moving to current point(x,y): (1,9); FloorType: LowPile
+Sat Nov 05 16:02:24 EDT 2016 Checking Dirt Sensor: Floor Dirty
+Sat Nov 05 16:02:24 EDT 2016 Checking Dirt Sensor: Floor Clean
+Sat Nov 05 16:02:24 EDT 2016 Cleaning current point(x,y): (1,9); Dirt Capacity: 1; Dirt Status: NotFull; FloorType: LowPile; EmptyMeIndicator:OFF
+Sat Nov 05 16:02:24 EDT 2016 Updating power level: 98; Power Level is OK.
+Sat Nov 05 16:02:24 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:24 EDT 2016 Checking directional sensor: South Direction: Blocked Path
+Sat Nov 05 16:02:24 EDT 2016 Checking directional sensor: East Direction: Clear Path
+Sat Nov 05 16:02:24 EDT 2016 Checking directional sensor: West Direction: Clear Path
+Sat Nov 05 16:02:25 EDT 2016 Moving to current point(x,y): (0,9); FloorType: NotFloor
+Sat Nov 05 16:02:25 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:25 EDT 2016 Checking directional sensor: South Direction: Blocked Path
+Sat Nov 05 16:02:25 EDT 2016 Checking directional sensor: East Direction: Clear Path
+Sat Nov 05 16:02:25 EDT 2016 Checking directional sensor: West Direction: Blocked Path
+Sat Nov 05 16:02:25 EDT 2016 Moving to current point(x,y): (0,8); FloorType: LowPile
+Sat Nov 05 16:02:25 EDT 2016 Checking Dirt Sensor: Floor Dirty
+Sat Nov 05 16:02:25 EDT 2016 Cleaning current point(x,y): (0,8); Dirt Capacity: 2; Dirt Status: NotFull; FloorType: LowPile; EmptyMeIndicator:OFF
+Sat Nov 05 16:02:25 EDT 2016 Updating power level: 96; Power Level is OK.
+Sat Nov 05 16:02:25 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:25 EDT 2016 Checking directional sensor: South Direction: Clear Path
+Sat Nov 05 16:02:25 EDT 2016 Checking directional sensor: East Direction: Clear Path
+Sat Nov 05 16:02:25 EDT 2016 Checking directional sensor: West Direction: Blocked Path
+Sat Nov 05 16:02:26 EDT 2016 Moving to current point(x,y): (1,8); FloorType: LowPile
+Sat Nov 05 16:02:26 EDT 2016 Checking Dirt Sensor: Floor Dirty
+Sat Nov 05 16:02:26 EDT 2016 Checking Dirt Sensor: Floor Clean
+Sat Nov 05 16:02:26 EDT 2016 Cleaning current point(x,y): (1,8); Dirt Capacity: 3; Dirt Status: NotFull; FloorType: LowPile; EmptyMeIndicator:OFF
+Sat Nov 05 16:02:26 EDT 2016 Updating power level: 94; Power Level is OK.
+Sat Nov 05 16:02:26 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:26 EDT 2016 Checking directional sensor: South Direction: Clear Path
+Sat Nov 05 16:02:26 EDT 2016 Checking directional sensor: East Direction: Clear Path
+Sat Nov 05 16:02:26 EDT 2016 Checking directional sensor: West Direction: Clear Path
+Sat Nov 05 16:02:26 EDT 2016 Moving to current point(x,y): (0,8); FloorType: LowPile
+Sat Nov 05 16:02:26 EDT 2016 Checking Dirt Sensor: Floor Dirty
+Sat Nov 05 16:02:26 EDT 2016 Cleaning current point(x,y): (0,8); Dirt Capacity: 4; Dirt Status: NotFull; FloorType: LowPile; EmptyMeIndicator:OFF
+Sat Nov 05 16:02:26 EDT 2016 Updating power level: 92; Power Level is OK.
+Sat Nov 05 16:02:26 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:26 EDT 2016 Checking directional sensor: South Direction: Clear Path
+Sat Nov 05 16:02:26 EDT 2016 Checking directional sensor: East Direction: Clear Path
+Sat Nov 05 16:02:26 EDT 2016 Checking directional sensor: West Direction: Blocked Path
+Sat Nov 05 16:02:27 EDT 2016 Moving to current point(x,y): (0,9); FloorType: NotFloor
+Sat Nov 05 16:02:27 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:27 EDT 2016 Checking directional sensor: South Direction: Blocked Path
+Sat Nov 05 16:02:27 EDT 2016 Checking directional sensor: East Direction: Clear Path
+Sat Nov 05 16:02:27 EDT 2016 Checking directional sensor: West Direction: Blocked Path
+Sat Nov 05 16:02:27 EDT 2016 Moving to current point(x,y): (0,8); FloorType: LowPile
+Sat Nov 05 16:02:27 EDT 2016 Checking Dirt Sensor: Floor Dirty
+Sat Nov 05 16:02:27 EDT 2016 Checking Dirt Sensor: Floor Clean
+Sat Nov 05 16:02:27 EDT 2016 Cleaning current point(x,y): (0,8); Dirt Capacity: 5; Dirt Status: NotFull; FloorType: LowPile; EmptyMeIndicator:OFF
+Sat Nov 05 16:02:27 EDT 2016 Updating power level: 90; Power Level is OK.
+Sat Nov 05 16:02:27 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:27 EDT 2016 Checking directional sensor: South Direction: Clear Path
+Sat Nov 05 16:02:27 EDT 2016 Checking directional sensor: East Direction: Clear Path
+Sat Nov 05 16:02:27 EDT 2016 Checking directional sensor: West Direction: Blocked Path
+Sat Nov 05 16:02:28 EDT 2016 Moving to current point(x,y): (0,9); FloorType: NotFloor
+Sat Nov 05 16:02:28 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:28 EDT 2016 Checking directional sensor: South Direction: Blocked Path
+Sat Nov 05 16:02:28 EDT 2016 Checking directional sensor: East Direction: Clear Path
+Sat Nov 05 16:02:28 EDT 2016 Checking directional sensor: West Direction: Blocked Path
+Sat Nov 05 16:02:28 EDT 2016 Moving to current point(x,y): (0,8); FloorType: LowPile
+Sat Nov 05 16:02:29 EDT 2016 Moving to current point(x,y): (0,7); FloorType: LowPile
+Sat Nov 05 16:02:29 EDT 2016 Checking Dirt Sensor: Floor Dirty
+Sat Nov 05 16:02:29 EDT 2016 Cleaning current point(x,y): (0,7); Dirt Capacity: 6; Dirt Status: NotFull; FloorType: LowPile; EmptyMeIndicator:OFF
+Sat Nov 05 16:02:29 EDT 2016 Updating power level: 88; Power Level is OK.
+Sat Nov 05 16:02:29 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:29 EDT 2016 Checking directional sensor: South Direction: Clear Path
+Sat Nov 05 16:02:29 EDT 2016 Checking directional sensor: East Direction: Clear Path
+Sat Nov 05 16:02:29 EDT 2016 Checking directional sensor: West Direction: Blocked Path
+Sat Nov 05 16:02:29 EDT 2016 Moving to current point(x,y): (1,7); FloorType: LowPile
+Sat Nov 05 16:02:29 EDT 2016 Checking Dirt Sensor: Floor Dirty
+Sat Nov 05 16:02:29 EDT 2016 Checking Dirt Sensor: Floor Clean
+Sat Nov 05 16:02:29 EDT 2016 Cleaning current point(x,y): (1,7); Dirt Capacity: 7; Dirt Status: NotFull; FloorType: LowPile; EmptyMeIndicator:OFF
+Sat Nov 05 16:02:29 EDT 2016 Updating power level: 86; Power Level is OK.
+Sat Nov 05 16:02:29 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:29 EDT 2016 Checking directional sensor: South Direction: Clear Path
+Sat Nov 05 16:02:29 EDT 2016 Checking directional sensor: East Direction: Clear Path
+Sat Nov 05 16:02:29 EDT 2016 Checking directional sensor: West Direction: Clear Path
+Sat Nov 05 16:02:30 EDT 2016 Moving to current point(x,y): (0,7); FloorType: LowPile
+Sat Nov 05 16:02:30 EDT 2016 Checking Dirt Sensor: Floor Dirty
+Sat Nov 05 16:02:30 EDT 2016 Cleaning current point(x,y): (0,7); Dirt Capacity: 8; Dirt Status: NotFull; FloorType: LowPile; EmptyMeIndicator:OFF
+Sat Nov 05 16:02:30 EDT 2016 Updating power level: 84; Power Level is OK.
+Sat Nov 05 16:02:30 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:30 EDT 2016 Checking directional sensor: South Direction: Clear Path
+Sat Nov 05 16:02:30 EDT 2016 Checking directional sensor: East Direction: Clear Path
+Sat Nov 05 16:02:30 EDT 2016 Checking directional sensor: West Direction: Blocked Path
+Sat Nov 05 16:02:30 EDT 2016 Moving to current point(x,y): (0,6); FloorType: LowPile
+Sat Nov 05 16:02:30 EDT 2016 Checking Dirt Sensor: Floor Dirty
+Sat Nov 05 16:02:30 EDT 2016 Checking Dirt Sensor: Floor Clean
+Sat Nov 05 16:02:30 EDT 2016 Cleaning current point(x,y): (0,6); Dirt Capacity: 9; Dirt Status: NotFull; FloorType: LowPile; EmptyMeIndicator:OFF
+Sat Nov 05 16:02:30 EDT 2016 Updating power level: 82; Power Level is OK.
+Sat Nov 05 16:02:30 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:30 EDT 2016 Checking directional sensor: South Direction: Clear Path
+Sat Nov 05 16:02:30 EDT 2016 Checking directional sensor: East Direction: Clear Path
+Sat Nov 05 16:02:30 EDT 2016 Checking directional sensor: West Direction: Blocked Path
+Sat Nov 05 16:02:31 EDT 2016 Moving to current point(x,y): (1,6); FloorType: LowPile
+Sat Nov 05 16:02:31 EDT 2016 Checking Dirt Sensor: Floor Dirty
+Sat Nov 05 16:02:31 EDT 2016 Checking Dirt Sensor: Floor Clean
+Sat Nov 05 16:02:31 EDT 2016 Cleaning current point(x,y): (1,6); Dirt Capacity: 10; Dirt Status: NotFull; FloorType: LowPile; EmptyMeIndicator:OFF
+Sat Nov 05 16:02:31 EDT 2016 Updating power level: 80; Power Level is OK.
+Sat Nov 05 16:02:31 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:31 EDT 2016 Checking directional sensor: South Direction: Clear Path
+Sat Nov 05 16:02:31 EDT 2016 Checking directional sensor: East Direction: Clear Path
+Sat Nov 05 16:02:31 EDT 2016 Checking directional sensor: West Direction: Clear Path
+Sat Nov 05 16:02:31 EDT 2016 Moving to current point(x,y): (2,6); FloorType: LowPile
+Sat Nov 05 16:02:31 EDT 2016 Checking Dirt Sensor: Floor Dirty
+Sat Nov 05 16:02:31 EDT 2016 Checking Dirt Sensor: Floor Clean
+Sat Nov 05 16:02:31 EDT 2016 Cleaning current point(x,y): (2,6); Dirt Capacity: 11; Dirt Status: NotFull; FloorType: LowPile; EmptyMeIndicator:OFF
+Sat Nov 05 16:02:31 EDT 2016 Updating power level: 78; Power Level is OK.
+Sat Nov 05 16:02:31 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:31 EDT 2016 Checking directional sensor: South Direction: Clear Path
+Sat Nov 05 16:02:31 EDT 2016 Checking directional sensor: East Direction: Clear Path
+Sat Nov 05 16:02:31 EDT 2016 Checking directional sensor: West Direction: Clear Path
+Sat Nov 05 16:02:32 EDT 2016 Moving to current point(x,y): (3,6); FloorType: LowPile
+Sat Nov 05 16:02:32 EDT 2016 Checking Dirt Sensor: Floor Dirty
+Sat Nov 05 16:02:32 EDT 2016 Checking Dirt Sensor: Floor Clean
+Sat Nov 05 16:02:32 EDT 2016 Cleaning current point(x,y): (3,6); Dirt Capacity: 12; Dirt Status: NotFull; FloorType: LowPile; EmptyMeIndicator:OFF
+Sat Nov 05 16:02:32 EDT 2016 Updating power level: 76; Power Level is OK.
+Sat Nov 05 16:02:32 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:32 EDT 2016 Checking directional sensor: South Direction: Clear Path
+Sat Nov 05 16:02:32 EDT 2016 Checking directional sensor: East Direction: Clear Path
+Sat Nov 05 16:02:32 EDT 2016 Checking directional sensor: West Direction: Clear Path
+Sat Nov 05 16:02:32 EDT 2016 Moving to current point(x,y): (4,6); FloorType: Bare
+Sat Nov 05 16:02:32 EDT 2016 Checking Dirt Sensor: Floor Dirty
+Sat Nov 05 16:02:32 EDT 2016 Checking Dirt Sensor: Floor Clean
+Sat Nov 05 16:02:32 EDT 2016 Cleaning current point(x,y): (4,6); Dirt Capacity: 13; Dirt Status: NotFull; FloorType: Bare; EmptyMeIndicator:OFF
+Sat Nov 05 16:02:32 EDT 2016 Updating power level: 75; Power Level is OK.
+Sat Nov 05 16:02:32 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:32 EDT 2016 Checking directional sensor: South Direction: Clear Path
+Sat Nov 05 16:02:32 EDT 2016 Checking directional sensor: East Direction: Clear Path
+Sat Nov 05 16:02:32 EDT 2016 Checking directional sensor: West Direction: Clear Path
+Sat Nov 05 16:02:33 EDT 2016 Moving to current point(x,y): (5,6); FloorType: Bare
+Sat Nov 05 16:02:33 EDT 2016 Checking Dirt Sensor: Floor Dirty
+Sat Nov 05 16:02:33 EDT 2016 Checking Dirt Sensor: Floor Clean
+Sat Nov 05 16:02:33 EDT 2016 Cleaning current point(x,y): (5,6); Dirt Capacity: 14; Dirt Status: NotFull; FloorType: Bare; EmptyMeIndicator:OFF
+Sat Nov 05 16:02:33 EDT 2016 Updating power level: 74; Power Level is OK.
+Sat Nov 05 16:02:33 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:33 EDT 2016 Checking directional sensor: South Direction: Clear Path
+Sat Nov 05 16:02:33 EDT 2016 Checking directional sensor: East Direction: Blocked Path
+Sat Nov 05 16:02:33 EDT 2016 Checking directional sensor: West Direction: Clear Path
+Sat Nov 05 16:02:33 EDT 2016 Moving to current point(x,y): (5,7); FloorType: Bare
+Sat Nov 05 16:02:33 EDT 2016 Checking Dirt Sensor: Floor Dirty
+Sat Nov 05 16:02:33 EDT 2016 Checking Dirt Sensor: Floor Clean
+Sat Nov 05 16:02:33 EDT 2016 Cleaning current point(x,y): (5,7); Dirt Capacity: 15; Dirt Status: NotFull; FloorType: Bare; EmptyMeIndicator:OFF
+Sat Nov 05 16:02:33 EDT 2016 Updating power level: 73; Power Level is OK.
+Sat Nov 05 16:02:33 EDT 2016 Checking directional sensor: North Direction: Clear Path
+Sat Nov 05 16:02:33 EDT 2016 Checking directional sensor: South Direction: Clear Path
+Sat Nov 05 16:02:33 EDT 2016 Checking directional sensor: East Direction: Blocked Path
+Sat Nov 05 16:02:33 EDT 2016 Checking directional sensor: West Direction: Clear Path

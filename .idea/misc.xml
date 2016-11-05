@@ -45,6 +45,9 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/Robot/pom.xml" />
+        <option value="$PROJECT_DIR$/Simulator/pom.xml" />
+        <option value="$PROJECT_DIR$/Main/pom.xml" />
       </list>
     </option>
   </component>
