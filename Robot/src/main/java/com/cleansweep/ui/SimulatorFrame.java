@@ -17,6 +17,7 @@ public class SimulatorFrame extends JPanel{
         this.controlSimulator = controlSimulator;
     }
 
+    public static final int STATUS_BAR_HEIGHT = 100;
 
     @Override
     public void paint(Graphics g) {
@@ -25,7 +26,10 @@ public class SimulatorFrame extends JPanel{
 
 
         int cellWidth = getWidth() / nodes.length;
-        int cellHeight = getHeight() / nodes[0].length;
+        int cellHeight = (getHeight()-STATUS_BAR_HEIGHT) / nodes[0].length;
+
+        g.setColor(Color.BLACK);
+        g.drawString("Power Level: " + controlSimulator.getPowerLevel().getPowerLevel() , 0, getHeight() - STATUS_BAR_HEIGHT + 20);
 
 
         for (int i = 0; i < nodes.length; i++) {

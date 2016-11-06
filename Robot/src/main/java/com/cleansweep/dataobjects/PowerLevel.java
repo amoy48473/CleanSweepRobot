@@ -1,5 +1,6 @@
 package com.cleansweep.dataobjects;
 
+import com.cleansweep.OutOfPowerException;
 import com.cleansweep.enums.FloorType;
 import com.cleansweep.exceptions.InvalidEnvironmentObjectException;
 
@@ -10,7 +11,7 @@ import java.util.List;
 
 public class PowerLevel {
 	
-	private int powerLevel;
+	private double powerLevel;
     private List<FloorType> floorTypes;
 	public static final int MAX_POWER_LEVEL = 100;
 	public static final int Low_Power_Level = 25;
@@ -20,7 +21,7 @@ public class PowerLevel {
 		floorTypes = new LinkedList<FloorType>();
 	}
 	
-	public int getPowerLevel(){
+	public double getPowerLevel(){
 		return powerLevel;
 	}
 	
@@ -36,7 +37,7 @@ public class PowerLevel {
 		return powerLevel == MAX_POWER_LEVEL;
 	}
 	
-	public int getPowerUnits(FloorType floor)throws InvalidEnvironmentObjectException{
+	public double getPowerUnits(FloorType floor)throws InvalidEnvironmentObjectException{
 		if(floor == FloorType.Bare){
 			return 1;
 		}else if(floor == FloorType.LowPile){
@@ -44,28 +45,42 @@ public class PowerLevel {
 		}else if(floor == FloorType.HighPile){
 			return 3;
 		}else{
-            throw new InvalidEnvironmentObjectException("environment object '" + floor + "' does not match any defined environment objects");
+			// Since we're required to use energy on on traversals, stations are considered 1 movement
+			return 1;
 		}
 				
 	}
 	
-	public void updatePowerLevel(FloorType currentFloorType)throws InvalidEnvironmentObjectException{
+	public void updatePowerLevel(FloorType currentFloorType)throws InvalidEnvironmentObjectException, OutOfPowerException{
 
 		
 
 			if(!(floorTypes.size() == 0)){
 				FloorType previousFloorType = floorTypes.get(floorTypes.size() - 1);
 				if(previousFloorType != currentFloorType){
-					int CurrentFloorPower = getPowerUnits(currentFloorType);
-					int previousFloorPower = getPowerUnits(previousFloorType);
-					powerLevel = powerLevel - ((CurrentFloorPower + previousFloorPower)/2);	
+					double CurrentFloorPower = getPowerUnits(currentFloorType);
+					double previousFloorPower = getPowerUnits(previousFloorType);
+
+					if (powerLevel - (( CurrentFloorPower +  previousFloorPower) /2) < 0){
+						throw new OutOfPowerException();
+					}
+
+					powerLevel = powerLevel - (( CurrentFloorPower + previousFloorPower)/2);
 				}else{
+					if ((powerLevel - getPowerUnits(currentFloorType)) < 0){
+						throw new OutOfPowerException();
+					}
+
+
 					powerLevel = powerLevel - getPowerUnits(currentFloorType);
 				}
 			
 	
 
 		}else{
+			if ((powerLevel - getPowerUnits(currentFloorType)) < 0){
+				throw new OutOfPowerException();
+			}
 			powerLevel = powerLevel - getPowerUnits(currentFloorType);
 		}
 		floorTypes.add(currentFloorType);

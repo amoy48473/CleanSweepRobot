@@ -61,7 +61,7 @@ public class ControlSimulator{
      * @throws InterruptedException
      * @throws CleanException
      */
-    private void search(Point root) throws IOException, BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException {
+    private void search(Point root) throws IOException, BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException, OutOfPowerException {
 
         if (root == null) return;
 
@@ -150,12 +150,7 @@ public class ControlSimulator{
                     	(emptyMeIndicator.getEmptyMeIndicator() ? "ON" : "OFF"));
                         activityLogData.activityLog.flush();
                         activityLogData.activityLog.newLine();            
-                    	FloorType currentFloorType = sensorSimulator.getCurrentSurface();
-                    	powerLevel.updatePowerLevel(currentFloorType);
-                        activityLogData.activityLog.write(new Date() + " Updating power level: " + powerLevel.getPowerLevel() + 
-                        		(powerLevel.isPowerLow() ? "; Power Level is Low!" : "; Power Level is OK."));
-                        activityLogData.activityLog.flush();
-                        activityLogData.activityLog.newLine();  
+
 
                     }
                 }
@@ -167,10 +162,21 @@ public class ControlSimulator{
 
     }
 
-    private void moveSensorSimulator(SensorSimulator sim, Direction direction) throws InterruptedException, BumpException {
+    private void moveSensorSimulator(SensorSimulator sim, Direction direction) throws InterruptedException, BumpException, InvalidEnvironmentObjectException, IOException, OutOfPowerException {
         Thread.sleep(500);
 
+        // Update floor counter
+        FloorType currentFloorType = sensorSimulator.getCurrentSurface();
+        // Update the power level
+        powerLevel.updatePowerLevel(currentFloorType);
+        activityLogData.activityLog.write(new Date() + " Updating power level: " + powerLevel.getPowerLevel() +
+                (powerLevel.isPowerLow() ? "; Power Level is Low!" : "; Power Level is OK."));
+        activityLogData.activityLog.flush();
+        activityLogData.activityLog.newLine();
+
         sensorSimulator.move(direction);
+
+
 
         jFrame.repaint();
 
@@ -288,7 +294,7 @@ public class ControlSimulator{
         return new Point(destX, destY);
     }
 
-    public void run(JFrame frame) throws IOException, BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException {
+    public void run(JFrame frame) throws IOException, BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException, OutOfPowerException {
         this.jFrame = frame;
 
        search(sensorSimulator.getPoint());
@@ -304,6 +310,7 @@ public class ControlSimulator{
     }
 
 
-
-
+    public PowerLevel getPowerLevel() {
+        return powerLevel;
+    }
 }

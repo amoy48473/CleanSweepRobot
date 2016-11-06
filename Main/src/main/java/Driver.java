@@ -1,4 +1,5 @@
 import com.cleansweep.ControlSimulator;
+import com.cleansweep.OutOfPowerException;
 import com.cleansweep.SensorSimulator;
 import com.cleansweep.exceptions.BumpException;
 import com.cleansweep.exceptions.CleanException;
@@ -12,7 +13,7 @@ import java.io.IOException;
 
 public class Driver {
 
-	public static void main(String[] args) throws IOException, InvalidBarrierException, InvalidEnvironmentObjectException, BumpException, CleanException, InterruptedException {
+	public static void main(String[] args) throws IOException, InvalidBarrierException, InvalidEnvironmentObjectException, BumpException, CleanException, InterruptedException, OutOfPowerException {
 		SensorSimulator s = new SensorSimulator(0,9, "floorplan.txt");
 		ControlSimulator c = new ControlSimulator(s);
 
