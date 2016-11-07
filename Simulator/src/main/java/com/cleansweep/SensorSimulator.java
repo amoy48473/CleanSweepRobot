@@ -338,6 +338,10 @@ public class SensorSimulator {
     }
 
 
+    public boolean isChargingStation(){
+        return grid[x][y].getEnvironmentObject().isChargingStation();
+    }
+
 
 
 }

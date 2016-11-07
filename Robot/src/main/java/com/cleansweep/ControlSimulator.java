@@ -3,9 +3,13 @@ package com.cleansweep;
 import com.cleansweep.dataobjects.*;
 import com.cleansweep.enums.Direction;
 import com.cleansweep.enums.FloorType;
+import com.cleansweep.environmentobjects.ChargingStation;
+import com.cleansweep.environmentobjects.Floor;
 import com.cleansweep.exceptions.BumpException;
 import com.cleansweep.exceptions.CleanException;
 import com.cleansweep.exceptions.InvalidEnvironmentObjectException;
+import com.cleansweep.services.EnergyCalculationService;
+import com.cleansweep.services.EnergyCalculationServiceImpl;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -32,6 +36,11 @@ public class ControlSimulator{
     private PowerLevel powerLevel;
     
     private EmptyMeIndicator emptyMeIndicator;
+
+    // List of charging stations that the robot knows about, it is stored in memory
+    private List<Point> chargingStations;
+
+    private EnergyCalculationService energyCalculationService;
     
  
     public ControlSimulator(SensorSimulator sensorSimulator){
@@ -40,6 +49,10 @@ public class ControlSimulator{
         this.powerLevel = new PowerLevel();
         this.activityLogData = new ActivityLog();
         this.emptyMeIndicator = new EmptyMeIndicator();
+
+        chargingStations = new ArrayList<Point>();
+
+        energyCalculationService = new EnergyCalculationServiceImpl();
         
         //fullyCleaned = new boolean[sensorSimulator.getHeight()][sensorSimulator.getWidth()];
         nodes = new ControlSimulatorNode[sensorSimulator.getHeight()][sensorSimulator.getWidth()];
@@ -62,6 +75,12 @@ public class ControlSimulator{
      * @throws CleanException
      */
     private void search(Point root) throws IOException, BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException, OutOfPowerException {
+
+        // Check if current location is a charging station, if it is, then add it to the list
+        if (sensorSimulator.isChargingStation() && !chargingStations.contains(root)){
+            chargingStations.add(root);
+        }
+
 
         if (root == null) return;
 
@@ -97,9 +116,19 @@ public class ControlSimulator{
         }
 
         while (!stack.isEmpty()){
-        	
 
-            Point destPoint = stack.pop();
+            Point destPoint;
+
+            // Before continuing, make sure that the rebot can still return one of the many charging station that it knows about before
+            // running out of power, take a peek of what is in the stack and see if the robot can return from there, else, rebot must return
+            // immediately
+
+            Point chargingStationLocation = getClosestChargingStationIfRequired(this.getPowerLevel(), stack.peek());
+            if (chargingStationLocation!=null){
+                destPoint = chargingStationLocation;
+            } else {
+                destPoint = stack.pop();
+            }
 
             if (nodes[destPoint.getY()][destPoint.getX()].isCleaned() &&
                     nodes[destPoint.getY()][destPoint.getX()].isVisited() ) continue;
@@ -160,6 +189,66 @@ public class ControlSimulator{
 
             }
 
+    }
+
+    /**
+     * Method determines whether the robot needs to return to the charging station, returns null if it is not needed,
+     * will return the point of the charging station otherwise
+     * @param currentPowerLevel
+     * @param nextLocation
+     * @return
+     */
+    private Point getClosestChargingStationIfRequired(PowerLevel currentPowerLevel, Point nextLocation) {
+        Point closest = null;
+        double leastEnergy = Double.POSITIVE_INFINITY;
+
+        // Find the closest charging station that the robot knows about that requires the least energy
+        for(Point chargingStation: chargingStations){
+            double energyRequired = 0;
+
+
+            List<Direction> directions = bfsToDestination(nextLocation, chargingStation);
+            Point tempCurrentLocation = new Point(nextLocation.getX(), nextLocation.getY());
+            Point tempNextLocation;
+
+            for (Direction direction: directions){
+
+
+                // Simulate the shortest path and check the least amount of energy to get there.
+                if (direction == Direction.North){
+                    tempNextLocation = new Point(tempCurrentLocation.getX(), tempCurrentLocation.getY()-1);
+                }
+                else if (direction == Direction.East){
+                    tempNextLocation = new Point(tempCurrentLocation.getX()+1, tempCurrentLocation.getY()+1);
+                }
+                else if (direction == Direction.South){
+                    tempNextLocation = new Point(tempCurrentLocation.getX(), tempCurrentLocation.getY()+1);
+
+                }
+                else {
+                    tempNextLocation = new Point(tempCurrentLocation.getX()-1, tempCurrentLocation.getY()+1);
+                }
+
+                energyRequired += energyCalculationService.calculateEnergyRequiredToTraverseFloor( ((Floor) nodes[tempCurrentLocation.getY()][tempCurrentLocation.getX()].getEnvironmentObject()).getFloorType(),
+                         ((Floor) nodes[tempNextLocation.getY()][tempNextLocation.getX()].getEnvironmentObject()).getFloorType());
+
+                tempCurrentLocation = tempNextLocation;
+            }
+
+            if (energyRequired < leastEnergy){
+                leastEnergy = energyRequired;
+                closest = chargingStation;
+            }
+        }
+
+        if (closest == null) return null;
+
+        // If we can't even return to the closest charging station, return before our move
+        if (leastEnergy > currentPowerLevel.getPowerLevel()){
+            return closest;
+        }
+
+        return null;
     }
 
     private void moveSensorSimulator(SensorSimulator sim, Direction direction) throws InterruptedException, BumpException, InvalidEnvironmentObjectException, IOException, OutOfPowerException {

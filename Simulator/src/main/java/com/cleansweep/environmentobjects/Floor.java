@@ -27,6 +27,14 @@ public class Floor implements EnvironmentObject {
         return false;
     }
 
+    public boolean isChargingStation() {
+        return false;
+    }
+
+    public boolean isFloor() {
+        return true;
+    }
+
     public void clean() throws CleanException {
         if (dirtUnits <= 0) {
             throw new CleanException("Cannot clean a floor that is already clean");

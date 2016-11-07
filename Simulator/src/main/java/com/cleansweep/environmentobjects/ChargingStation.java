@@ -13,4 +13,12 @@ public class ChargingStation implements EnvironmentObject{
 		return false;
 	}
 
+	public boolean isChargingStation(){
+		return true;
+	}
+
+	public boolean isFloor() {
+		return false;
+	}
+
 }

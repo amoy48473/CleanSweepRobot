@@ -10,4 +10,12 @@ public class Obstacle implements EnvironmentObject{
 		return true;
 	}
 
+	public boolean isChargingStation() {
+		return false;
+	}
+
+	public boolean isFloor() {
+		return false;
+	}
+
 }

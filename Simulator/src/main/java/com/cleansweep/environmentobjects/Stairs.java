@@ -13,4 +13,12 @@ public class Stairs implements EnvironmentObject{
 		return true;
 	}
 
+	public boolean isChargingStation() {
+		return false;
+	}
+
+	public boolean isFloor() {
+		return false;
+	}
+
 }
