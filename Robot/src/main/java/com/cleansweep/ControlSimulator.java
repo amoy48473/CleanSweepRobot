@@ -3,8 +3,6 @@ package com.cleansweep;
 import com.cleansweep.dataobjects.*;
 import com.cleansweep.enums.Direction;
 import com.cleansweep.enums.FloorType;
-import com.cleansweep.environmentobjects.ChargingStation;
-import com.cleansweep.environmentobjects.Floor;
 import com.cleansweep.exceptions.BumpException;
 import com.cleansweep.exceptions.CleanException;
 import com.cleansweep.exceptions.InvalidEnvironmentObjectException;
@@ -41,7 +39,11 @@ public class ControlSimulator{
     private List<Point> chargingStations;
 
     private EnergyCalculationService energyCalculationService;
-    
+
+    public boolean returningToChargingStation = false;
+
+    private Point travelingTo;
+
  
     public ControlSimulator(SensorSimulator sensorSimulator){
         this.sensorSimulator = sensorSimulator;
@@ -78,14 +80,18 @@ public class ControlSimulator{
 
         // Check if current location is a charging station, if it is, then add it to the list
         if (sensorSimulator.isChargingStation() && !chargingStations.contains(root)){
+
             chargingStations.add(root);
+            nodes[root.getY()][root.getX()].setChargingStation(true);
         }
 
 
         if (root == null) return;
 
         // Set this point as visited
-        nodes[root.getY()][root.getX()].setVisited(true);
+        ControlSimulatorNode rootNode =  nodes[root.getY()][root.getX()];
+        rootNode.setVisited(true);
+
 
 
         // For every neighbor
@@ -99,7 +105,11 @@ public class ControlSimulator{
                 activityLogData.activityLog.flush();
                 activityLogData.activityLog.newLine(); 
 
-                nodes[root.getY()][root.getX()].setOpen(direction);
+                ControlSimulatorNode nextNode = nodes[root.getY()][root.getX()];
+                nextNode.setOpen(direction);
+
+                nodes[calculatedPoint.getY()][calculatedPoint.getX()].setFloorType(sensorSimulator.getSurface(direction));
+
 
                 if (!nodes[calculatedPoint.getY()][calculatedPoint.getX()].isCleaned()){
                     stack.push(calculatedPoint);
@@ -123,71 +133,33 @@ public class ControlSimulator{
             // running out of power, take a peek of what is in the stack and see if the robot can return from there, else, rebot must return
             // immediately
 
-            Point chargingStationLocation = getClosestChargingStationIfRequired(this.getPowerLevel(), stack.peek());
-            if (chargingStationLocation!=null){
-                destPoint = chargingStationLocation;
-            } else {
-                destPoint = stack.pop();
-            }
+            destPoint = stack.pop();
 
             if (nodes[destPoint.getY()][destPoint.getX()].isCleaned() &&
                     nodes[destPoint.getY()][destPoint.getX()].isVisited() ) continue;
 
+            travelingTo = destPoint;
             List<Direction> path = bfsToDestination(getCurrentLocation(), destPoint);
 
+            traverseDirections(path);
 
 
-            for (Direction direction: path){
-                moveSensorSimulator(sensorSimulator, direction);
-                activityLogData.activityLog.write(new Date() + " Moving to current point(x,y): (" + sensorSimulator.getPoint().getX() + "," 
-             	+ sensorSimulator.getPoint().getY()  + 
-             	"); FloorType: " + sensorSimulator.getCurrentSurface());
-                activityLogData.activityLog.flush();
-                activityLogData.activityLog.newLine();            
+            // Logic to charge the robot if it is looking for charging station and it is on top of a charging station
+            if (returningToChargingStation && nodes[getCurrentLocation().getY()][getCurrentLocation().getX()].isChargingStation()){
+                powerLevel.charge();
+                activityLogData.activityLog.write("Recharging battery");
 
-                	
-                // If there is dirt here then clean it
-                if (sensorSimulator.getDirtSensor()) {
-                    activityLogData.activityLog.write(new Date() + " Checking Dirt Sensor: " + (sensorSimulator.getDirtSensor() ? "Floor Dirty" : "Floor Clean"));
-                    activityLogData.activityLog.flush();
-                    activityLogData.activityLog.newLine();
-
-                    sensorSimulator.clean();
-
-                    
-
-                    Point currentPoint = sensorSimulator.getPoint();
+                returningToChargingStation = false;
 
 
-                    // If there is still dirt here, then add it back in stack to come back later
-                    if (!sensorSimulator.getDirtSensor()){
-                        nodes[currentPoint.getY()][currentPoint.getX()].setCleaned(true);
-                        activityLogData.activityLog.write(new Date() + " Checking Dirt Sensor: " + (sensorSimulator.getDirtSensor() ? "Floor Dirty" : "Floor Clean"));
-                        activityLogData.activityLog.flush();
-                        activityLogData.activityLog.newLine();
-                    }
-                    
-                    if(sensorSimulator.isGridJustCleaned()){
-                    	dirtCapacity.updateDirtCapacity();
-                    	if(dirtCapacity.isMaxDirtCapacity()){
-                    		emptyMeIndicator.turnOnEmptyMeIndicator();
-                    	}
-                        activityLogData.activityLog.write(new Date() + " Cleaning current point(x,y): (" + currentPoint.getX() + "," 
-                    	+ currentPoint.getY() + "); Dirt Capacity: " + dirtCapacity.getDirtCapacity() +
-                    	"; Dirt Status: " + dirtCapacity.getDirtCapacityStatus() + 
-                    	"; FloorType: " + sensorSimulator.getCurrentSurface() + "; EmptyMeIndicator:" + 
-                    	(emptyMeIndicator.getEmptyMeIndicator() ? "ON" : "OFF"));
-                        activityLogData.activityLog.flush();
-                        activityLogData.activityLog.newLine();            
 
-
-                    }
-                }
             }
 
             search(sensorSimulator.getPoint());
 
-            }
+
+
+        }
 
     }
 
@@ -195,11 +167,11 @@ public class ControlSimulator{
      * Method determines whether the robot needs to return to the charging station, returns null if it is not needed,
      * will return the point of the charging station otherwise
      * @param currentPowerLevel
-     * @param nextLocation
+     * @param currentLocation
      * @return
      */
-    private Point getClosestChargingStationIfRequired(PowerLevel currentPowerLevel, Point nextLocation) {
-        Point closest = null;
+    private List<Direction> getPathToClosestChargingStationIfNecessary(PowerLevel currentPowerLevel, Point currentLocation) {
+        List<Direction> path = null;
         double leastEnergy = Double.POSITIVE_INFINITY;
 
         // Find the closest charging station that the robot knows about that requires the least energy
@@ -207,8 +179,8 @@ public class ControlSimulator{
             double energyRequired = 0;
 
 
-            List<Direction> directions = bfsToDestination(nextLocation, chargingStation);
-            Point tempCurrentLocation = new Point(nextLocation.getX(), nextLocation.getY());
+            List<Direction> directions = bfsViaKnownLocations(currentLocation, chargingStation);
+            Point tempCurrentLocation = new Point(currentLocation.getX(), currentLocation.getY());
             Point tempNextLocation;
 
             for (Direction direction: directions){
@@ -219,45 +191,49 @@ public class ControlSimulator{
                     tempNextLocation = new Point(tempCurrentLocation.getX(), tempCurrentLocation.getY()-1);
                 }
                 else if (direction == Direction.East){
-                    tempNextLocation = new Point(tempCurrentLocation.getX()+1, tempCurrentLocation.getY()+1);
+                    tempNextLocation = new Point(tempCurrentLocation.getX()+1, tempCurrentLocation.getY());
                 }
                 else if (direction == Direction.South){
                     tempNextLocation = new Point(tempCurrentLocation.getX(), tempCurrentLocation.getY()+1);
 
                 }
                 else {
-                    tempNextLocation = new Point(tempCurrentLocation.getX()-1, tempCurrentLocation.getY()+1);
+                    tempNextLocation = new Point(tempCurrentLocation.getX()-1, tempCurrentLocation.getY());
                 }
 
-                energyRequired += energyCalculationService.calculateEnergyRequiredToTraverseFloor( ((Floor) nodes[tempCurrentLocation.getY()][tempCurrentLocation.getX()].getEnvironmentObject()).getFloorType(),
-                         ((Floor) nodes[tempNextLocation.getY()][tempNextLocation.getX()].getEnvironmentObject()).getFloorType());
+                double moveEnergy = energyCalculationService.calculateEnergyRequiredToTraverseFloor(nodes[tempCurrentLocation.getY()][tempCurrentLocation.getX()],
+                        nodes[tempNextLocation.getY()][tempNextLocation.getX()]);
+
+
+                energyRequired += moveEnergy;
 
                 tempCurrentLocation = tempNextLocation;
             }
 
             if (energyRequired < leastEnergy){
                 leastEnergy = energyRequired;
-                closest = chargingStation;
+                path = directions;
             }
+
         }
 
-        if (closest == null) return null;
+        if (path == null) return null;
 
-        // If we can't even return to the closest charging station, return before our move
-        if (leastEnergy > currentPowerLevel.getPowerLevel()){
-            return closest;
+        System.out.println(currentLocation.getX()+ "," + currentLocation.getY());
+
+        // If returning takes the robot to below the critical power level, return at once
+        if (currentPowerLevel.getPowerLevel() - leastEnergy <= PowerLevel.CRITICAL_POWER_LEVEL){
+
+            return path;
         }
 
         return null;
     }
 
     private void moveSensorSimulator(SensorSimulator sim, Direction direction) throws InterruptedException, BumpException, InvalidEnvironmentObjectException, IOException, OutOfPowerException {
-        Thread.sleep(500);
+        Thread.sleep(100);
 
-        // Update floor counter
-        FloorType currentFloorType = sensorSimulator.getCurrentSurface();
-        // Update the power level
-        powerLevel.updatePowerLevel(currentFloorType);
+
         activityLogData.activityLog.write(new Date() + " Updating power level: " + powerLevel.getPowerLevel() +
                 (powerLevel.isPowerLow() ? "; Power Level is Low!" : "; Power Level is OK."));
         activityLogData.activityLog.flush();
@@ -265,6 +241,12 @@ public class ControlSimulator{
 
         sensorSimulator.move(direction);
 
+
+
+        // Update floor counter
+        FloorType currentFloorType = sensorSimulator.getCurrentSurface();
+        // Update the power level
+        powerLevel.updatePowerLevel(currentFloorType);
 
 
         jFrame.repaint();
@@ -335,6 +317,74 @@ public class ControlSimulator{
         return direction;
     }
 
+    /**
+     * The robot knows about its location that it is traveling through, give start and finish and it will try
+     * to traverse these with the shortest path by taking a safe route that doesn't cause it to crash
+     * @param current
+     * @param finish
+     */
+    private List<Direction> bfsViaKnownLocations(Point current, Point finish){
+        Set<String> visited = new HashSet<String>();
+
+        Map<String, Point> prev = new HashMap<String, Point>();
+        Map<String, Direction> prevDirection = new HashMap<String, Direction>();
+
+        Queue<Point> q = new LinkedList<Point>();
+
+        q.add(current);
+
+        visited.add(current.toString());
+
+
+
+        while (!q.isEmpty()){
+            current = q.remove();
+
+            if (current.getX()==finish.getX() && current.getY()==finish.getY()){
+                break;
+            } else {
+                for (Direction direction: Direction.values()){
+
+                    if (current.getX()==finish.getX() && current.getY()==finish.getY()) {
+                        break;
+                    }
+
+                    // Only search the areas we know about and of those only those that haven't been searched
+                    Point nextPoint = getCalculatedPoint(direction, current);
+
+                    if (notOutOfBounds(nextPoint)
+                            && nodes[nextPoint.getY()][nextPoint.getX()].isVisited()
+                            && !isBump(current, direction)
+                            && !visited.contains(nextPoint.toString())){
+                        q.add(nextPoint);
+
+                        visited.add(nextPoint.toString());
+                        prev.put(nextPoint.toString(), current);
+                        prevDirection.put(nextPoint.toString(), direction);
+                    }
+
+                }
+            }
+
+
+
+        }
+
+        List<Direction> direction = new LinkedList<Direction>();
+        for (Point point = finish; prev.get(point.toString())!=null; point = prev.get(point.toString())){
+
+            direction.add(0, prevDirection.get(point.toString()));
+        }
+
+
+        return direction;
+    }
+
+    /**
+     * Get Revversal of a direction
+     * @param direction
+     * @return
+     */
     private Direction reverse(Direction direction) {
         switch (direction){
             case North:
@@ -349,6 +399,11 @@ public class ControlSimulator{
         return null;
     }
 
+    /**
+     * Checks whether a coordinate is out of bounds
+     * @param nextPoint
+     * @return
+     */
     private boolean notOutOfBounds(Point nextPoint) {
         if (nextPoint.getX() == sensorSimulator.getWidth()
                 || nextPoint.getX() < 0 || nextPoint.getY() == sensorSimulator.getHeight()
@@ -359,6 +414,12 @@ public class ControlSimulator{
         return true;
     }
 
+    /**
+     * Checks whether the direction from the specified location is blocked
+     * @param point
+     * @param direction
+     * @return
+     */
     private boolean isBump(Point point, Direction direction){
         return nodes[point.getY()][point.getX()].isBlocking(direction);
     }
@@ -383,12 +444,109 @@ public class ControlSimulator{
         return new Point(destX, destY);
     }
 
+
+    /**
+     * The Run method that makes the robot automatically roam the roam until it is finished cleaning the whole room
+     * @param frame
+     * @throws IOException
+     * @throws BumpException
+     * @throws InterruptedException
+     * @throws CleanException
+     * @throws InvalidEnvironmentObjectException
+     * @throws OutOfPowerException
+     */
     public void run(JFrame frame) throws IOException, BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException, OutOfPowerException {
         this.jFrame = frame;
 
        search(sensorSimulator.getPoint());
 
     }
+
+    /**
+     * Takes in a path and executes the movements on the robot
+     * @param path
+     * @throws InterruptedException
+     * @throws InvalidEnvironmentObjectException
+     * @throws IOException
+     * @throws OutOfPowerException
+     * @throws BumpException
+     * @throws CleanException
+     */
+    private void traverseDirections(List<Direction> path) throws InterruptedException, InvalidEnvironmentObjectException, IOException, OutOfPowerException, BumpException, CleanException {
+
+        for (Direction direction: path){
+
+
+            // If not already returning to charging station.
+            if (!returningToChargingStation) {
+
+                // For each move, check to make sure that robot has enough energy to return to charging station, else return immediately and store current destination for future
+                List<Direction> pathToChargingStation = getPathToClosestChargingStationIfNecessary(this.getPowerLevel(), getCurrentLocation());
+                if (pathToChargingStation != null) {
+
+
+                    // Put destination back in the stack so when done charging, robot will first return there
+                    stack.push(travelingTo);
+
+                    path = pathToChargingStation;
+                    returningToChargingStation = true;
+
+                    traverseDirections(path);
+
+                    return;
+                }
+            }
+
+
+
+            moveSensorSimulator(sensorSimulator, direction);
+            activityLogData.activityLog.write(new Date() + " Moving to current point(x,y): (" + sensorSimulator.getPoint().getX() + ","
+                    + sensorSimulator.getPoint().getY()  +
+                    "); FloorType: " + sensorSimulator.getCurrentSurface());
+            activityLogData.activityLog.flush();
+            activityLogData.activityLog.newLine();
+
+
+            // If there is dirt here then clean it
+            if (sensorSimulator.getDirtSensor()) {
+                activityLogData.activityLog.write(new Date() + " Checking Dirt Sensor: " + (sensorSimulator.getDirtSensor() ? "Floor Dirty" : "Floor Clean"));
+                activityLogData.activityLog.flush();
+                activityLogData.activityLog.newLine();
+
+                sensorSimulator.clean();
+
+
+
+                Point currentPoint = sensorSimulator.getPoint();
+
+
+                // If there is still dirt here, then add it back in stack to come back later
+                if (!sensorSimulator.getDirtSensor()){
+                    nodes[currentPoint.getY()][currentPoint.getX()].setCleaned(true);
+                    activityLogData.activityLog.write(new Date() + " Checking Dirt Sensor: " + (sensorSimulator.getDirtSensor() ? "Floor Dirty" : "Floor Clean"));
+                    activityLogData.activityLog.flush();
+                    activityLogData.activityLog.newLine();
+                }
+
+                if(sensorSimulator.isGridJustCleaned()){
+                    dirtCapacity.updateDirtCapacity();
+                    if(dirtCapacity.isMaxDirtCapacity()){
+                        emptyMeIndicator.turnOnEmptyMeIndicator();
+                    }
+                    activityLogData.activityLog.write(new Date() + " Cleaning current point(x,y): (" + currentPoint.getX() + ","
+                            + currentPoint.getY() + "); Dirt Capacity: " + dirtCapacity.getDirtCapacity() +
+                            "; Dirt Status: " + dirtCapacity.getDirtCapacityStatus() +
+                            "; FloorType: " + sensorSimulator.getCurrentSurface() + "; EmptyMeIndicator:" +
+                            (emptyMeIndicator.getEmptyMeIndicator() ? "ON" : "OFF"));
+                    activityLogData.activityLog.flush();
+                    activityLogData.activityLog.newLine();
+
+
+                }
+            }
+        }
+    }
+
 
     public ControlSimulatorNode[][] getNodes(){
         return nodes;

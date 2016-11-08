@@ -87,28 +87,6 @@ public class ControlSimulatorNodeTest {
 		
 	}
 
-	/**
-	 * Test method for {@link com.cleansweep.dataobjects.ControlSimulatorNode#getEnvironmentObject()}.
-	 */
-	@Test
-	public void testGetEnvironmentObject() {
-		EnvironmentObject environmentobject = new Floor(1, FloorType.HighPile);
-		ControlSimulatorNode controlsimulatornode = new ControlSimulatorNode();
-		controlsimulatornode.setEnvironmentObject(environmentobject);
-		assertEquals(environmentobject, controlsimulatornode.getEnvironmentObject());
-		
-	}
-
-	/**
-	 * Test method for {@link com.cleansweep.dataobjects.ControlSimulatorNode#setEnvironmentObject(com.cleansweep.environmentobjects.EnvironmentObject)}.
-	 */
-	@Test
-	public void testSetEnvironmentObject() {
-		EnvironmentObject environmentobject = new Floor(1, FloorType.HighPile);
-		ControlSimulatorNode controlsimulatornode = new ControlSimulatorNode();
-		controlsimulatornode.setEnvironmentObject(environmentobject);
-		assertEquals(environmentobject, controlsimulatornode.getEnvironmentObject());
-	}
 
 	/**
 	 * Test method for {@link com.cleansweep.dataobjects.ControlSimulatorNode#isLeftBlocking()}.

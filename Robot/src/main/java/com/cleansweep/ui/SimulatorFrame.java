@@ -60,7 +60,11 @@ public class SimulatorFrame extends JPanel{
 
                 com.cleansweep.dataobjects.Point currentLocation = controlSimulator.getCurrentLocation();
                 if (i==currentLocation.getY() && j==currentLocation.getX()){
-                    g.setColor(Color.RED);
+                    if (controlSimulator.returningToChargingStation){
+                        g.setColor(Color.RED);
+                    } else {
+                        g.setColor(Color.GREEN);
+                    }
                     g.fillRect(j * cellWidth, i * cellHeight, cellWidth, cellHeight);
                     g.setColor(Color.black);
                 }

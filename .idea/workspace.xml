@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf97747f-c900-4520-8fcd-1409689e9144" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/services/EnergyCalculationService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/services/EnergyCalculationServiceImpl.java" />
+    <list default="true" id="bf97747f-c900-4520-8fcd-1409689e9144" name="Default" comment="Implemented feature so that robot returns to charging station by itself recharges itself and continues.">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/services/EnergyCalculationService.java" afterPath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/services/EnergyCalculationService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/services/EnergyCalculationServiceImpl.java" afterPath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/services/EnergyCalculationServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/main/resources/floorplan.txt" afterPath="$PROJECT_DIR$/Main/src/main/resources/floorplan.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ControlSimulator.java" afterPath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ControlSimulator.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/ControlSimulatorNode.java" afterPath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/ControlSimulatorNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/PowerLevel.java" afterPath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/PowerLevel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ui/SimulatorFrame.java" afterPath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ui/SimulatorFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/ControlSimulatorNodeTest.java" afterPath="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/ControlSimulatorNodeTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/SensorSimulator.java" afterPath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/SensorSimulator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/ChargingStation.java" afterPath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/ChargingStation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/EnvironmentObject.java" afterPath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/EnvironmentObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/Floor.java" afterPath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/Floor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/Obstacle.java" afterPath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/Obstacle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/Stairs.java" afterPath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/Stairs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/enums/FloorType.java" afterPath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/enums/FloorType.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/activitylog.txt" afterPath="$PROJECT_DIR$/activitylog.txt" />
     </list>
     <ignored path="CleanSweepRobot.iws" />
@@ -52,17 +53,48 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="CleanSweepRobot" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="ControlSimulator.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ControlSimulator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="125" column="79" selection-start-line="125" selection-start-column="44" selection-end-line="125" selection-end-column="79" />
+            <state relative-caret-position="276">
+              <caret line="488" column="40" selection-start-line="488" selection-start-column="40" selection-end-line="488" selection-end-column="40" />
+              <folding>
+                <element signature="e#19774#19775#0" expanded="true" />
+                <element signature="e#19807#19808#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="floorplan.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main/src/main/resources/floorplan.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="72" selection-start-line="11" selection-start-column="72" selection-end-line="11" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Driver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main/src/main/java/Driver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -71,32 +103,31 @@
       <file leaf-file-name="PowerLevel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/PowerLevel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="59" column="36" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EnergyCalculationService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/services/EnergyCalculationService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="58" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
+            <state relative-caret-position="-158">
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="EnergyCalculationServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/services/EnergyCalculationServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/services/EnergyCalculationServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+            <state relative-caret-position="357">
+              <caret line="21" column="60" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="60" />
               <folding>
-                <element signature="e#294#295#0" expanded="true" />
-                <element signature="e#318#319#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnergyCalculationService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/services/EnergyCalculationService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -104,9 +135,14 @@
       <file leaf-file-name="FloorType.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/enums/FloorType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="15" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="21" />
-              <folding />
+            <state relative-caret-position="136">
+              <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+              <folding>
+                <element signature="e#170#171#0" expanded="true" />
+                <element signature="e#213#214#0" expanded="true" />
+                <element signature="e#251#252#0" expanded="true" />
+                <element signature="e#279#280#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,9 +150,17 @@
       <file leaf-file-name="ControlSimulatorNode.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/ControlSimulatorNode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-884">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="1836">
+              <caret line="127" column="40" selection-start-line="127" selection-start-column="40" selection-end-line="127" selection-end-column="40" />
+              <folding>
+                <element signature="e#2551#2552#0" expanded="true" />
+                <element signature="e#2583#2584#0" expanded="true" />
+                <element signature="e#2636#2637#0" expanded="true" />
+                <element signature="e#2678#2679#0" expanded="true" />
+                <element signature="e#2760#2761#0" expanded="true" />
+                <element signature="e#2823#2824#0" expanded="true" />
+                <element signature="e#2874#2875#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -147,12 +191,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/cleansweep/environmentobjects/Floor.java" />
-        <option value="$PROJECT_DIR$/src/com/cleansweep/robot/RobotGraph.java" />
-        <option value="$PROJECT_DIR$/src/com/cleansweep/dataobjects/Point.java" />
-        <option value="$PROJECT_DIR$/src/com/cleansweep/Driver.java" />
-        <option value="$PROJECT_DIR$/src/com/cleansweep/enums/Direction.java" />
-        <option value="$PROJECT_DIR$/src/com/cleansweep/SensorSimulator.java" />
         <option value="$PROJECT_DIR$/src/com/cleansweep/ControlSimulator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cleansweep/barriers/Door.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cleansweep/Driver.java" />
@@ -181,23 +219,29 @@
         <option value="$PROJECT_DIR$/Robot/pom.xml" />
         <option value="$PROJECT_DIR$/Main/pom.xml" />
         <option value="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/ActivityLog.java" />
-        <option value="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ui/SimulatorFrame.java" />
         <option value="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/OutOfPowerException.java" />
-        <option value="$PROJECT_DIR$/Main/src/main/java/Driver.java" />
         <option value="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/MoveTest.java" />
-        <option value="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/PowerLevel.java" />
         <option value="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/PowerCalculationTest.java" />
-        <option value="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/SensorSimulator.java" />
-        <option value="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/ControlSimulatorNode.java" />
         <option value="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/EnvironmentObject.java" />
         <option value="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/ChargingStation.java" />
         <option value="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/Floor.java" />
         <option value="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/Obstacle.java" />
         <option value="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/Stairs.java" />
         <option value="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/services/CalculateMovementPower.java" />
-        <option value="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/services/EnergyCalculationServiceImpl.java" />
         <option value="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/services/EnergyCalculationService.java" />
+        <option value="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/services/EnergyCalculationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/services/EnergyCalculationService.java" />
+        <option value="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/ControlSimulatorNodeTest.java" />
+        <option value="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/enums/RobotFloorType.java" />
+        <option value="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/enums/FloorType.java" />
+        <option value="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/PowerLevel.java" />
+        <option value="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/services/EnergyCalculationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/SensorSimulator.java" />
+        <option value="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ui/SimulatorFrame.java" />
+        <option value="$PROJECT_DIR$/Main/src/main/java/Driver.java" />
+        <option value="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/ControlSimulatorNode.java" />
         <option value="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ControlSimulator.java" />
+        <option value="$PROJECT_DIR$/Main/src/main/resources/floorplan.txt" />
       </list>
     </option>
   </component>
@@ -250,7 +294,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -259,116 +302,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CleanSweepRobot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CleanSweepRobot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CleanSweepRobot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CleanSweepRobot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Simulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CleanSweepRobot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CleanSweepRobot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Simulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CleanSweepRobot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CleanSweepRobot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Simulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cleansweep" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CleanSweepRobot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CleanSweepRobot" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Simulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cleansweep" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -386,24 +324,24 @@
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.cleansweep" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\amoy\IdeaProjects\CleanSweepRobot\Simulator\src\test\java\com\cleansweep" />
-      <recent name="C:\Users\amoy\IdeaProjects\CleanSweepRobot\Robot\src\main\java" />
-      <recent name="C:\Users\amoy\IdeaProjects\CleanSweepRobot\Simulator\src\main\java" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.cleansweep" />
-      <recent name="com.cleansweep.ui" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\amoy\IdeaProjects\CleanSweepRobot\Main\src\main\resources" />
       <recent name="C:\Users\amoy\IdeaProjects\CleanSweepRobot\Robot\src\main\resources" />
       <recent name="C:\Users\amoy\IdeaProjects\CleanSweepRobot\Simulator\src\main\resources" />
       <recent name="$PROJECT_DIR$/src/com/cleansweep/exceptions" />
       <recent name="$PROJECT_DIR$/src/com/cleansweep/environmentobjects" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.cleansweep" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.cleansweep" />
+      <recent name="com.cleansweep.ui" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\amoy\IdeaProjects\CleanSweepRobot\Simulator\src\test\java\com\cleansweep" />
+      <recent name="C:\Users\amoy\IdeaProjects\CleanSweepRobot\Robot\src\main\java" />
+      <recent name="C:\Users\amoy\IdeaProjects\CleanSweepRobot\Simulator\src\main\java" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Driver">
@@ -974,7 +912,8 @@
       <workItem from="1476021003683" duration="52136000" />
       <workItem from="1478358226081" duration="15046000" />
       <workItem from="1478398330895" duration="612000" />
-      <workItem from="1478466313757" duration="8629000" />
+      <workItem from="1478466313757" duration="8686000" />
+      <workItem from="1478567801934" duration="14809000" />
     </task>
     <task id="LOCAL-00001" summary="Intial Commit">
       <created>1474601017845</created>
@@ -1088,11 +1027,18 @@
       <option name="project" value="LOCAL" />
       <updated>1478470253520</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Incremental changes for implementing instructions for the robot to return to charging station if it is running low on power.">
+      <created>1478495460737</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1478495460737</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77472000" />
+    <option name="totallyTimeSpent" value="92338000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1105,19 +1051,18 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.97463" sideWeight="0.11770833" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38136512" sideWeight="0.8822917" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26435536" sideWeight="0.48125" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37919825" sideWeight="0.8822917" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.026119404" sideWeight="0.52862597" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.49751243" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21428572" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.030916844" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33694476" sideWeight="0.49270833" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2153518" sideWeight="0.47137403" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34236187" sideWeight="0.4203125" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34236187" sideWeight="0.4203125" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1125,6 +1070,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.026119404" sideWeight="0.52862597" order="8" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1154,32 +1100,27 @@
     <MESSAGE value="Added dirt cleaning functionality." />
     <MESSAGE value="Updated thread wait duration." />
     <MESSAGE value="Updated power usage logic to be used on move and not clean. Added exception for power level hitting 0. Added Tests for power usage." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated power usage logic to be used on move and not clean. Added exception for power level hitting 0. Added Tests for power usage." />
+    <MESSAGE value="Incremental changes for implementing instructions for the robot to return to charging station if it is running low on power." />
+    <option name="LAST_COMMIT_MESSAGE" value="Incremental changes for implementing instructions for the robot to return to charging station if it is running low on power." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ControlSimulator.java</url>
-          <line>231</line>
-          <properties />
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="78" />
+      <option name="time" value="124" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="nodes[calculatedPoint.getY()][calculatedPoint.getX()].setFloorType(sensorSimulator.getSurface(direction))" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/cleansweep/dataobjects/Point.java" />
-    <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/test/DoorTypeTest.java" />
     <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/enums/Direction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1323,7 +1264,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1331,35 +1271,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-102">
           <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/main/java/Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/OutOfPowerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ui/SimulatorFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1383,14 +1294,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/ControlSimulatorNodeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="94" column="55" selection-start-line="94" selection-start-column="50" selection-end-line="94" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/dataobjects/Point.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -1404,23 +1307,10 @@
         <state relative-caret-position="272">
           <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="21" />
           <folding>
-            <element signature="e#269#270#0" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
-            <element signature="e#316#317#0" expanded="true" />
-            <element signature="e#335#336#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/Floor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
-          <folding>
-            <element signature="e#701#702#0" expanded="true" />
-            <element signature="e#729#730#0" expanded="true" />
-            <element signature="e#761#762#0" expanded="true" />
-            <element signature="e#788#789#0" expanded="true" />
+            <element signature="e#269#270#0" expanded="false" />
+            <element signature="e#287#288#0" expanded="false" />
+            <element signature="e#316#317#0" expanded="false" />
+            <element signature="e#335#336#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1430,10 +1320,10 @@
         <state relative-caret-position="221">
           <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="21" />
           <folding>
-            <element signature="e#228#229#0" expanded="true" />
-            <element signature="e#247#248#0" expanded="true" />
-            <element signature="e#276#277#0" expanded="true" />
-            <element signature="e#295#296#0" expanded="true" />
+            <element signature="e#228#229#0" expanded="false" />
+            <element signature="e#247#248#0" expanded="false" />
+            <element signature="e#276#277#0" expanded="false" />
+            <element signature="e#295#296#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1443,19 +1333,11 @@
         <state relative-caret-position="272">
           <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="21" />
           <folding>
-            <element signature="e#251#252#0" expanded="true" />
-            <element signature="e#270#271#0" expanded="true" />
-            <element signature="e#299#300#0" expanded="true" />
-            <element signature="e#318#319#0" expanded="true" />
+            <element signature="e#251#252#0" expanded="false" />
+            <element signature="e#270#271#0" expanded="false" />
+            <element signature="e#299#300#0" expanded="false" />
+            <element signature="e#318#319#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/enums/FloorType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="15" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1467,62 +1349,134 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/ControlSimulatorNode.java">
+    <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/services.java" />
+    <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/Floor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-884">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="136">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/services.java">
+    <entry file="file://$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/ControlSimulatorNodeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        <state relative-caret-position="78">
+          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/services/EnergyCalculationService.java">
+    <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/enums/RobotFloorType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="58" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
+        <state relative-caret-position="136">
+          <caret line="8" column="66" selection-start-line="8" selection-start-column="66" selection-end-line="8" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/services/EnergyCalculationServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/OutOfPowerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        <state relative-caret-position="1156">
+          <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/enums/FloorType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
           <folding>
-            <element signature="e#294#295#0" expanded="true" />
-            <element signature="e#318#319#0" expanded="true" />
+            <element signature="e#170#171#0" expanded="true" />
+            <element signature="e#213#214#0" expanded="true" />
+            <element signature="e#251#252#0" expanded="true" />
+            <element signature="e#279#280#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/SensorSimulator.java">
+    <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/services/EnergyCalculationService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-113">
-          <caret line="152" column="40" selection-start-line="152" selection-start-column="31" selection-end-line="152" selection-end-column="40" />
+        <state relative-caret-position="51">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/services/EnergyCalculationServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="60" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/PowerLevel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="59" column="36" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="36" />
+        <state relative-caret-position="-158">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/main/java/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/ControlSimulatorNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1836">
+          <caret line="127" column="40" selection-start-line="127" selection-start-column="40" selection-end-line="127" selection-end-column="40" />
+          <folding>
+            <element signature="e#2551#2552#0" expanded="true" />
+            <element signature="e#2583#2584#0" expanded="true" />
+            <element signature="e#2636#2637#0" expanded="true" />
+            <element signature="e#2678#2679#0" expanded="true" />
+            <element signature="e#2760#2761#0" expanded="true" />
+            <element signature="e#2823#2824#0" expanded="true" />
+            <element signature="e#2874#2875#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ui/SimulatorFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/SensorSimulator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="36" column="26" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/main/resources/floorplan.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="72" selection-start-line="11" selection-start-column="72" selection-end-line="11" selection-end-column="72" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ControlSimulator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="125" column="79" selection-start-line="125" selection-start-column="44" selection-end-line="125" selection-end-column="79" />
-          <folding />
+        <state relative-caret-position="276">
+          <caret line="488" column="40" selection-start-line="488" selection-start-column="40" selection-end-line="488" selection-end-column="40" />
+          <folding>
+            <element signature="e#19774#19775#0" expanded="true" />
+            <element signature="e#19807#19808#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

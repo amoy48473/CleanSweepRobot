@@ -1,7 +1,7 @@
 package com.cleansweep.dataobjects;
 
 import com.cleansweep.enums.Direction;
-import com.cleansweep.environmentobjects.EnvironmentObject;
+import com.cleansweep.enums.FloorType;
 
 /**
  * Created by allenmoy on 10/11/16.
@@ -9,11 +9,13 @@ import com.cleansweep.environmentobjects.EnvironmentObject;
  */
 public class ControlSimulatorNode {
 
+    private boolean isChargingStation;
+
     private boolean visited;
 
     private boolean cleaned;
 
-    private EnvironmentObject environmentObject;
+    private FloorType floorType;
 
     private boolean leftBlocking, topBlocking, rightBlocking, downBlocking;
 
@@ -78,13 +80,7 @@ public class ControlSimulatorNode {
     }
 
 
-    public EnvironmentObject getEnvironmentObject() {
-        return environmentObject;
-    }
 
-    public void setEnvironmentObject(EnvironmentObject environmentObject) {
-        this.environmentObject = environmentObject;
-    }
 
     public boolean isLeftBlocking() {
         return leftBlocking;
@@ -118,5 +114,22 @@ public class ControlSimulatorNode {
 
     public void setCleaned(boolean cleaned) {
         this.cleaned = cleaned;
+    }
+
+
+    public FloorType getFloorType() {
+        return floorType;
+    }
+
+    public void setFloorType(FloorType floorType) {
+        this.floorType = floorType;
+    }
+
+    public boolean isChargingStation() {
+        return isChargingStation;
+    }
+
+    public void setChargingStation(boolean chargingStation) {
+        isChargingStation = chargingStation;
     }
 }

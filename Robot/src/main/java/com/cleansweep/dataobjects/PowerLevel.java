@@ -15,6 +15,9 @@ public class PowerLevel {
     private List<FloorType> floorTypes;
 	public static final int MAX_POWER_LEVEL = 100;
 	public static final int Low_Power_Level = 25;
+
+    // Critical Power level, always be safe and have it higher or equal to the floor that requires most energy
+    public static final int CRITICAL_POWER_LEVEL = 4;
 	
 	public PowerLevel(){
 		powerLevel = MAX_POWER_LEVEL;
@@ -38,16 +41,7 @@ public class PowerLevel {
 	}
 	
 	public double getPowerUnits(FloorType floor)throws InvalidEnvironmentObjectException{
-		if(floor == FloorType.Bare){
-			return 1;
-		}else if(floor == FloorType.LowPile){
-			return 2;
-		}else if(floor == FloorType.HighPile){
-			return 3;
-		}else{
-			// Since we're required to use energy on on traversals, stations are considered 1 movement
-			return 1;
-		}
+		return floor.getEnergyRequired();
 				
 	}
 	

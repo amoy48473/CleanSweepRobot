@@ -284,7 +284,7 @@ public class SensorSimulator {
             if (grid[x][y + 1].getEnvironmentObject() instanceof Floor) {
                 return ((Floor) grid[x][y + 1].getEnvironmentObject()).getFloorType();
             }
-        } else if (direction == Direction.South) {
+        } else if (direction == Direction.West) {
             if (x == 0) {
                 return FloorType.NotFloor;
             }
