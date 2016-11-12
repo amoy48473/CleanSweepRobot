@@ -45,7 +45,7 @@ public class ControlSimulator implements FrameListener{
 
     private Point travelingTo;
 
- 
+
     public ControlSimulator(SensorSimulator sensorSimulator, int delayTime){
         this.sensorSimulator = sensorSimulator;
         this.dirtCapacity = new DirtCapacity();
@@ -68,6 +68,10 @@ public class ControlSimulator implements FrameListener{
         }
 
         this.delayTime = delayTime;
+    }
+
+    public void setjFrame(JFrame jFrame) {
+        this.jFrame = jFrame;
     }
 
     /**
@@ -253,7 +257,7 @@ public class ControlSimulator implements FrameListener{
         return null;
     }
 
-    private void moveSensorSimulator(SensorSimulator sim, Direction direction) throws InterruptedException, BumpException, InvalidEnvironmentObjectException, IOException, OutOfPowerException {
+    public void moveSensorSimulator(Direction direction) throws InterruptedException, BumpException, InvalidEnvironmentObjectException, IOException, OutOfPowerException {
         Thread.sleep(getDelayTime());
 
 
@@ -272,7 +276,7 @@ public class ControlSimulator implements FrameListener{
         powerLevel.updatePowerLevel(currentFloorType);
 
 
-        jFrame.repaint();
+        updatePanel();
 
 
 
@@ -466,7 +470,6 @@ public class ControlSimulator implements FrameListener{
 
     /**
      * The Run method that makes the robot automatically roam the roam until it is finished cleaning the whole room
-     * @param frame
      * @throws IOException
      * @throws BumpException
      * @throws InterruptedException
@@ -474,8 +477,7 @@ public class ControlSimulator implements FrameListener{
      * @throws InvalidEnvironmentObjectException
      * @throws OutOfPowerException
      */
-    public void run(JFrame frame) throws IOException, BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException, OutOfPowerException, CapacityFullException {
-        this.jFrame = frame;
+    public void run() throws IOException, BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException, OutOfPowerException, CapacityFullException {
 
        search(sensorSimulator.getPoint());
 
@@ -518,7 +520,7 @@ public class ControlSimulator implements FrameListener{
 
 
 
-            moveSensorSimulator(sensorSimulator, direction);
+            moveSensorSimulator(direction);
             activityLogData.activityLog.write(new Date() + " Moving to current point(x,y): (" + sensorSimulator.getPoint().getX() + ","
                     + sensorSimulator.getPoint().getY()  +
                     "); FloorType: " + sensorSimulator.getCurrentSurface());
@@ -601,7 +603,9 @@ public class ControlSimulator implements FrameListener{
 
 
     public void updatePanel() {
-        jFrame.repaint();
+        if (jFrame != null) {
+            jFrame.repaint();
+        }
     }
 
     public int getDelayTime() {

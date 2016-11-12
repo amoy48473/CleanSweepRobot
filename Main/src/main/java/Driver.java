@@ -23,7 +23,8 @@ public class Driver {
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 
-		c.run(frame);
+		c.setjFrame(frame);
+		c.run();
 
 	}
 
