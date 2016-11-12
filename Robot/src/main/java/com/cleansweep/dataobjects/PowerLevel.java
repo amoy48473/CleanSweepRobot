@@ -1,8 +1,10 @@
 package com.cleansweep.dataobjects;
 
-import com.cleansweep.OutOfPowerException;
+import com.cleansweep.ControlSimulator;
+import com.cleansweep.exceptions.OutOfPowerException;
 import com.cleansweep.enums.FloorType;
 import com.cleansweep.exceptions.InvalidEnvironmentObjectException;
+import com.cleansweep.ui.FrameListener;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -85,8 +87,12 @@ public class PowerLevel {
 		floorTypes.clear();
 	}
 	
-	public void charge(){
-		powerLevel = MAX_POWER_LEVEL;
+	public void charge(FrameListener frameListener) throws InterruptedException {
+		while (powerLevel < MAX_POWER_LEVEL){
+			frameListener.updatePanel();
+			Thread.sleep(100);
+			powerLevel++;
+		}
 	}
 	
 	

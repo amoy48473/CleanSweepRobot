@@ -5,7 +5,10 @@ package com.cleansweep;
 
 import com.cleansweep.dataobjects.DirtCapacity;
 import com.cleansweep.enums.DirtCapacityStatus;
+import com.cleansweep.ui.FrameListener;
+import org.junit.Before;
 import org.junit.Test;
+import static org.mockito.Mockito.*;
 
 import static org.junit.Assert.*;
 
@@ -14,6 +17,13 @@ import static org.junit.Assert.*;
  *
  */
 public class DirtCapacityTest {
+
+	private FrameListener frameListener;
+
+	@Before
+	public void SetUp(){
+		this.frameListener = mock(FrameListener.class);
+	}
 
 	/**
 	 * Test method for {@link com.cleansweep.dataobjects.DirtCapacity#DirtCapacity()}.
@@ -81,20 +91,20 @@ public class DirtCapacityTest {
 	}
 
 	/**
-	 * Test method for {@link com.cleansweep.dataobjects.DirtCapacity#emptyDirtTray()}.
+	 * Test method for {@link com.cleansweep.dataobjects.DirtCapacity#emptyDirtTray(FrameListener)}.
 	 */
 	@Test
-	public void testEmptyDirtTray() {
+	public void testEmptyDirtTray() throws InterruptedException {
 		DirtCapacity dirt = new DirtCapacity();
-		dirt.emptyDirtTray();
+		dirt.emptyDirtTray(frameListener);
 		assertTrue(dirt.getDirtCapacity() == 0);
 		assertTrue(dirt.getDirtCapacityStatus() == DirtCapacityStatus.Empty);
 		dirt.setDirtCapacity(20);
-		dirt.emptyDirtTray();
+		dirt.emptyDirtTray(frameListener);
 		assertTrue(dirt.getDirtCapacity() == 0);
 		assertTrue(dirt.getDirtCapacityStatus() == DirtCapacityStatus.Empty);
 		dirt.setDirtCapacity(50);
-		dirt.emptyDirtTray();
+		dirt.emptyDirtTray(frameListener);
 		assertTrue(dirt.getDirtCapacity() == 0);
 		assertTrue(dirt.getDirtCapacityStatus() == DirtCapacityStatus.Empty);
 		

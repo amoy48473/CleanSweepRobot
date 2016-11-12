@@ -3,6 +3,7 @@ package com.cleansweep;
 import com.cleansweep.dataobjects.PowerLevel;
 import com.cleansweep.enums.FloorType;
 import com.cleansweep.exceptions.InvalidEnvironmentObjectException;
+import com.cleansweep.exceptions.OutOfPowerException;
 import org.junit.Test;
 
 /**

@@ -1,6 +1,7 @@
 package com.cleansweep.dataobjects;
 
 import com.cleansweep.enums.DirtCapacityStatus;
+import com.cleansweep.ui.FrameListener;
 
 public class DirtCapacity {
     private int dirtCapacity;
@@ -36,9 +37,14 @@ public class DirtCapacity {
     	updateDirtCapacityStatus();
     }
     
-    public void emptyDirtTray(){
-    	dirtCapacity = 0;
-    	updateDirtCapacityStatus();
+    public void emptyDirtTray(FrameListener frameListener) throws InterruptedException {
+
+        while (dirtCapacity > 0){
+            Thread.sleep(100);
+            dirtCapacity--;
+            frameListener.updatePanel();
+        }
+        updateDirtCapacityStatus();
     }
     
     public boolean isDirtTrayEmpty(){

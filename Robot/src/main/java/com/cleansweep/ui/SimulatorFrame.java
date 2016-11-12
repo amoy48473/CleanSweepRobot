@@ -31,6 +31,8 @@ public class SimulatorFrame extends JPanel{
         g.setColor(Color.BLACK);
         g.drawString("Power Level: " + controlSimulator.getPowerLevel().getPowerLevel() , 0, getHeight() - STATUS_BAR_HEIGHT + 20);
 
+        g.drawString("Capacity: " + controlSimulator.getDirtCapacity().getDirtCapacity() + "/" + controlSimulator.getDirtCapacity().getMaxDirtCapacity() , 0, getHeight() - STATUS_BAR_HEIGHT + 40);
+
 
         for (int i = 0; i < nodes.length; i++) {
 

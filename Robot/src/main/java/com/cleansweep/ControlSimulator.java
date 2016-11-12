@@ -3,11 +3,10 @@ package com.cleansweep;
 import com.cleansweep.dataobjects.*;
 import com.cleansweep.enums.Direction;
 import com.cleansweep.enums.FloorType;
-import com.cleansweep.exceptions.BumpException;
-import com.cleansweep.exceptions.CleanException;
-import com.cleansweep.exceptions.InvalidEnvironmentObjectException;
+import com.cleansweep.exceptions.*;
 import com.cleansweep.services.EnergyCalculationService;
 import com.cleansweep.services.EnergyCalculationServiceImpl;
+import com.cleansweep.ui.FrameListener;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -16,7 +15,7 @@ import java.util.*;
 /**
  * Created by allenmoy on 10/10/16.
  */
-public class ControlSimulator{
+public class ControlSimulator implements FrameListener{
 
 
     private SensorSimulator sensorSimulator;
@@ -76,7 +75,7 @@ public class ControlSimulator{
      * @throws InterruptedException
      * @throws CleanException
      */
-    private void search(Point root) throws IOException, BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException, OutOfPowerException {
+    private void search(Point root) throws IOException, BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException, OutOfPowerException, CapacityFullException {
 
         // Check if current location is a charging station, if it is, then add it to the list
         if (sensorSimulator.isChargingStation() && !chargingStations.contains(root)){
@@ -146,11 +145,16 @@ public class ControlSimulator{
 
             // Logic to charge the robot if it is looking for charging station and it is on top of a charging station
             if (returningToChargingStation && nodes[getCurrentLocation().getY()][getCurrentLocation().getX()].isChargingStation()){
-                powerLevel.charge();
-                activityLogData.activityLog.write("Recharging battery");
 
-                returningToChargingStation = false;
+                // If tray needs emptying, them empty
+                if (emptyMeIndicator.getEmptyMeIndicator()){
+                    empty();
+                }
 
+                // If battery needs charging, then charge
+                if (powerLevel.isPowerLow()){
+                    recharge();
+                }
 
 
             }
@@ -160,6 +164,21 @@ public class ControlSimulator{
 
 
         }
+
+    }
+
+    private void recharge() throws IOException, InterruptedException {
+        powerLevel.charge(this);
+        activityLogData.activityLog.write("Recharging battery");
+
+        returningToChargingStation = false;
+    }
+
+    private void empty() throws InterruptedException {
+        dirtCapacity.emptyDirtTray(this);
+        emptyMeIndicator.turnOffEmptyMeIndicator();
+
+        returningToChargingStation = false;
 
     }
 
@@ -222,7 +241,8 @@ public class ControlSimulator{
         System.out.println(currentLocation.getX()+ "," + currentLocation.getY());
 
         // If returning takes the robot to below the critical power level, return at once
-        if (currentPowerLevel.getPowerLevel() - leastEnergy <= PowerLevel.CRITICAL_POWER_LEVEL){
+            if (currentPowerLevel.getPowerLevel() - leastEnergy <= PowerLevel.CRITICAL_POWER_LEVEL ||
+                    emptyMeIndicator.getEmptyMeIndicator()){
 
             return path;
         }
@@ -455,7 +475,7 @@ public class ControlSimulator{
      * @throws InvalidEnvironmentObjectException
      * @throws OutOfPowerException
      */
-    public void run(JFrame frame) throws IOException, BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException, OutOfPowerException {
+    public void run(JFrame frame) throws IOException, BumpException, InterruptedException, CleanException, InvalidEnvironmentObjectException, OutOfPowerException, CapacityFullException {
         this.jFrame = frame;
 
        search(sensorSimulator.getPoint());
@@ -472,7 +492,7 @@ public class ControlSimulator{
      * @throws BumpException
      * @throws CleanException
      */
-    private void traverseDirections(List<Direction> path) throws InterruptedException, InvalidEnvironmentObjectException, IOException, OutOfPowerException, BumpException, CleanException {
+    private void traverseDirections(List<Direction> path) throws InterruptedException, InvalidEnvironmentObjectException, IOException, OutOfPowerException, BumpException, CleanException, CapacityFullException {
 
         for (Direction direction: path){
 
@@ -513,7 +533,10 @@ public class ControlSimulator{
                 activityLogData.activityLog.flush();
                 activityLogData.activityLog.newLine();
 
-                sensorSimulator.clean();
+                // If empty me indicate is not on, then continue cleaning, else turn off cleaning function
+                if (!emptyMeIndicator.getEmptyMeIndicator()) {
+                    clean();
+                }
 
 
 
@@ -547,6 +570,15 @@ public class ControlSimulator{
         }
     }
 
+    public void clean() throws CleanException, CapacityFullException {
+
+        // Cannot clean, throw an exception
+        if (emptyMeIndicator.getEmptyMeIndicator()) {
+            throw new CapacityFullException();
+        }
+
+        sensorSimulator.clean();
+    }
 
     public ControlSimulatorNode[][] getNodes(){
         return nodes;
@@ -556,8 +588,20 @@ public class ControlSimulator{
         return sensorSimulator.getPoint();
     }
 
-
     public PowerLevel getPowerLevel() {
         return powerLevel;
+    }
+
+    public DirtCapacity getDirtCapacity() {
+        return dirtCapacity;
+    }
+
+    public EmptyMeIndicator getEmptyMeIndicator() {
+        return emptyMeIndicator;
+    }
+
+
+    public void updatePanel() {
+        jFrame.repaint();
     }
 }
