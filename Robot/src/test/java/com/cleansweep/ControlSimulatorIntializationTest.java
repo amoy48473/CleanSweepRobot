@@ -1,5 +1,6 @@
 package com.cleansweep;
 
+import com.cleansweep.dataobjects.Point;
 import com.cleansweep.dataobjects.PowerLevel;
 import com.cleansweep.enums.DirtCapacityStatus;
 import com.cleansweep.exceptions.*;
@@ -33,7 +34,7 @@ public class ControlSimulatorIntializationTest {
     }
 
     @Test
-    public void testControlSimulatorIntilialization() throws InterruptedException, InvalidEnvironmentObjectException, IOException, OutOfPowerException, CapacityFullException, CleanException, BumpException {
+    public void testControlSimulator() throws InterruptedException, InvalidEnvironmentObjectException, IOException, OutOfPowerException, CapacityFullException, CleanException, BumpException {
 
         // Assert that Indicator is turned off
         assertTrue(!controlSimulator.getEmptyMeIndicator().getEmptyMeIndicator());
@@ -48,7 +49,14 @@ public class ControlSimulatorIntializationTest {
 
 
         JFrame jFrame = mock(JFrame.class);
+
         controlSimulator.run(jFrame);
+
+        Point startPoint = controlSimulator.getCurrentLocation();
+
+        // Assert that traveling to own location is an empty list
+        assertTrue(controlSimulator.bfsToDestination(startPoint, startPoint).isEmpty());
+
     }
 
 }

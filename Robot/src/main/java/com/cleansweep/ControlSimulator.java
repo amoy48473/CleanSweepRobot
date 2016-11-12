@@ -284,7 +284,7 @@ public class ControlSimulator implements FrameListener{
      * @param current
      * @param finish
      */
-    private List<Direction> bfsToDestination(Point current, Point finish){
+    public List<Direction> bfsToDestination(Point current, Point finish){
         Set<String> visited = new HashSet<String>();
 
         Map<String, Point> prev = new HashMap<String, Point>();
@@ -346,7 +346,7 @@ public class ControlSimulator implements FrameListener{
      * @param current
      * @param finish
      */
-    private List<Direction> bfsViaKnownLocations(Point current, Point finish){
+    public List<Direction> bfsViaKnownLocations(Point current, Point finish){
         Set<String> visited = new HashSet<String>();
 
         Map<String, Point> prev = new HashMap<String, Point>();

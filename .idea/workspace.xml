@@ -2,31 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf97747f-c900-4520-8fcd-1409689e9144" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/ControlSimulatorIntializationTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Robot/src/test/resources/floorplan.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main/src/main/java/Driver.java" afterPath="$PROJECT_DIR$/Main/src/main/java/Driver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/Robot.iml" afterPath="$PROJECT_DIR$/Robot/Robot.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/pom.xml" afterPath="$PROJECT_DIR$/Robot/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ControlSimulator.java" afterPath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ControlSimulator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/ControlSimulatorNode.java" afterPath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/ControlSimulatorNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/DirtCapacity.java" afterPath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/DirtCapacity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/PowerLevel.java" afterPath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/dataobjects/PowerLevel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/exceptions/CapacityFullException.java" afterPath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/exceptions/CapacityFullException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/exceptions/OutOfPowerException.java" afterPath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/exceptions/OutOfPowerException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/services/EnergyCalculationService.java" afterPath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/services/EnergyCalculationService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/services/EnergyCalculationServiceImpl.java" afterPath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/services/EnergyCalculationServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ui/FrameListener.java" afterPath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ui/FrameListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ui/SimulatorFrame.java" afterPath="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ui/SimulatorFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/ControlSimulatorNodeTest.java" afterPath="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/ControlSimulatorNodeTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/OutOfPowerTest.java" afterPath="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/OutOfPowerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/PowerCalculationTest.java" afterPath="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/PowerCalculationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Simulator/pom.xml" afterPath="$PROJECT_DIR$/Simulator/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/SensorSimulator.java" afterPath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/SensorSimulator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/barriers/Barrier.java" afterPath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/barriers/Barrier.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/dataobjects/Point.java" afterPath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/dataobjects/Point.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/EnvironmentObject.java" afterPath="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/environmentobjects/EnvironmentObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/activitylog.txt" afterPath="$PROJECT_DIR$/activitylog.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/ControlSimulatorIntializationTest.java" afterPath="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/ControlSimulatorIntializationTest.java" />
     </list>
     <ignored path="CleanSweepRobot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,99 +61,21 @@
       <file leaf-file-name="ControlSimulator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ControlSimulator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="441" column="20" selection-start-line="441" selection-start-column="20" selection-end-line="441" selection-end-column="20" />
+            <state relative-caret-position="-3678">
+              <caret line="348" column="10" selection-start-line="348" selection-start-column="10" selection-end-line="348" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Simulator/pom.xml">
+      <file leaf-file-name="ControlSimulatorIntializationTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/ControlSimulatorIntializationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="82" selection-start-line="3" selection-start-column="76" selection-end-line="3" selection-end-column="82" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CapacityFullException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/exceptions/CapacityFullException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="62" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OutOfPowerException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/exceptions/OutOfPowerException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EnergyCalculationService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/services/EnergyCalculationService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EnergyCalculationServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/services/EnergyCalculationServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FrameListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ui/FrameListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimulatorFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ui/SimulatorFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Point.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/dataobjects/Point.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ControlSimulatorNodeTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/ControlSimulatorNodeTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-              <folding />
+            <state relative-caret-position="702">
+              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -245,8 +145,6 @@
         <option value="$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/internal/runners/model/ReflectiveCallable.class" />
         <option value="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/barriers/Barrier.java" />
         <option value="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/SensorSimulator.java" />
-        <option value="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ControlSimulator.java" />
-        <option value="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/ControlSimulatorIntializationTest.java" />
         <option value="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/OutOfPowerTest.java" />
         <option value="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/PowerCalculationTest.java" />
         <option value="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/exceptions/CapacityFullException.java" />
@@ -258,6 +156,8 @@
         <option value="$PROJECT_DIR$/Simulator/src/main/java/com/cleansweep/dataobjects/Point.java" />
         <option value="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/ControlSimulatorNodeTest.java" />
         <option value="$PROJECT_DIR$/Simulator/pom.xml" />
+        <option value="$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ControlSimulator.java" />
+        <option value="$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/ControlSimulatorIntializationTest.java" />
       </list>
     </option>
   </component>
@@ -310,8 +210,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -512,7 +412,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1148,7 +1048,8 @@
       <workItem from="1478398330895" duration="612000" />
       <workItem from="1478466313757" duration="8686000" />
       <workItem from="1478567801934" duration="14809000" />
-      <workItem from="1478926662126" duration="5177000" />
+      <workItem from="1478926662126" duration="5446000" />
+      <workItem from="1478978653387" duration="584000" />
     </task>
     <task id="LOCAL-00001" summary="Intial Commit">
       <created>1474601017845</created>
@@ -1276,7 +1177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478928905570</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Implemented Tests for Control Simulator.">
+      <created>1478931871635</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1478931871635</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1294,7 +1202,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97596000" />
+    <option name="totallyTimeSpent" value="98449000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1311,20 +1219,17 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.27083334" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.97463" sideWeight="0.11770833" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38136512" sideWeight="0.8822917" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26435536" sideWeight="0.48125" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38136512" sideWeight="0.8822917" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42578548" sideWeight="0.49751243" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21428572" sideWeight="0.4938704" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.030916844" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33694476" sideWeight="0.49270833" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2153518" sideWeight="0.47137403" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1335,8 +1240,11 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827735" sideWeight="0.27083334" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.026119404" sideWeight="0.52862597" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33694476" sideWeight="0.49270833" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1368,7 +1276,8 @@
     <MESSAGE value="Updated power usage logic to be used on move and not clean. Added exception for power level hitting 0. Added Tests for power usage." />
     <MESSAGE value="Incremental changes for implementing instructions for the robot to return to charging station if it is running low on power." />
     <MESSAGE value="Implemented Dirt emptying functionality." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented Dirt emptying functionality." />
+    <MESSAGE value="Implemented Tests for Control Simulator." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented Tests for Control Simulator." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1480,7 +1389,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1488,7 +1396,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1496,7 +1403,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1504,7 +1410,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1513,7 +1418,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1522,7 +1426,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="72" selection-start-line="11" selection-start-column="72" selection-end-line="11" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1608,7 +1511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1616,7 +1518,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="63" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1624,7 +1525,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
           <caret line="196" column="39" selection-start-line="196" selection-start-column="39" selection-end-line="196" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1632,7 +1532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1641,16 +1540,6 @@
         <state relative-caret-position="188">
           <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/ControlSimulatorIntializationTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1666,6 +1555,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Simulator/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1736,17 +1633,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Robot/src/main/java/com/cleansweep/ControlSimulator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="441" column="20" selection-start-line="441" selection-start-column="20" selection-end-line="441" selection-end-column="20" />
+        <state relative-caret-position="-3678">
+          <caret line="348" column="10" selection-start-line="348" selection-start-column="10" selection-end-line="348" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Simulator/pom.xml">
+    <entry file="file://$PROJECT_DIR$/Robot/src/test/java/com/cleansweep/ControlSimulatorIntializationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="82" selection-start-line="3" selection-start-column="76" selection-end-line="3" selection-end-column="82" />
-          <folding />
+        <state relative-caret-position="702">
+          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
