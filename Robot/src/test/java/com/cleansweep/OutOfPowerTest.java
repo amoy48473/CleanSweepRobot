@@ -8,6 +8,7 @@ import org.junit.Test;
 
 /**
  * Created by amoy on 11/6/2016.
+ * Test of Out of Power
  */
 public class OutOfPowerTest {
 

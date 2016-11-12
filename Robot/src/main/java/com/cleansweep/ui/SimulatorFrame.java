@@ -8,6 +8,7 @@ import java.awt.*;
 
 /**
  * Created by allenmoy on 10/11/16.
+ * Frame object that popups up animation
  */
 public class SimulatorFrame extends JPanel{
 
@@ -46,7 +47,7 @@ public class SimulatorFrame extends JPanel{
 
                 // draw bottom line
                 if (node.isDownBlocking()){
-                    g.drawLine(j*cellWidth, (i*cellHeight+cellHeight), j*cellWidth+cellWidth, i*cellHeight+cellHeight );  ;
+                    g.drawLine(j*cellWidth, (i*cellHeight+cellHeight), j*cellWidth+cellWidth, i*cellHeight+cellHeight );
                 }
 
                 // draw right line

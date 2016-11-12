@@ -44,23 +44,6 @@ public class ControlSimulatorNodeTest {
 	}
 
 	/**
-	 * Test method for {@link com.cleansweep.dataobjects.ControlSimulatorNode#setBlocking(com.cleansweep.enums.Direction)}.
-	 */
-	@Test
-	public void testSetBlocking() {
-		ControlSimulatorNode controlsimulatornode = new ControlSimulatorNode();
-		controlsimulatornode.setBlocking(Direction.North);
-		assertTrue(controlsimulatornode.isBlocking(Direction.North));
-		controlsimulatornode.setBlocking(Direction.East);
-		assertTrue(controlsimulatornode.isBlocking(Direction.East));
-		controlsimulatornode.setBlocking(Direction.South);
-		assertTrue(controlsimulatornode.isBlocking(Direction.South));
-		controlsimulatornode.setBlocking(Direction.West);
-		assertTrue(controlsimulatornode.isBlocking(Direction.West));
-		
-	}
-
-	/**
 	 * Test method for {@link com.cleansweep.dataobjects.ControlSimulatorNode#setOpen(com.cleansweep.enums.Direction)}.
 	 */
 	@Test

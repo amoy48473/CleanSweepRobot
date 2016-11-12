@@ -11,7 +11,7 @@ public class Driver {
 
 	public static void main(String[] args) throws IOException, InvalidBarrierException, InvalidEnvironmentObjectException, BumpException, CleanException, InterruptedException, OutOfPowerException, CapacityFullException {
 		SensorSimulator s = new SensorSimulator(0,9, "floorplan.txt");
-		ControlSimulator c = new ControlSimulator(s);
+		ControlSimulator c = new ControlSimulator(s, 100);
 
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

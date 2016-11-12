@@ -105,10 +105,7 @@ public class SensorSimulator {
             if (grid[x][y - 1].getEnvironmentObject().isBlocking()) {
                 return false;
             }
-            if (grid[x][y].getBarrier(Direction.North).isBlocking()) {
-                return false;
-            }
-            return true;
+            return !grid[x][y].getBarrier(Direction.North).isBlocking();
         } else if (direction == Direction.East) {
             if (x == width - 1) {
                 return false;
@@ -116,10 +113,7 @@ public class SensorSimulator {
             if (grid[x + 1][y].getEnvironmentObject().isBlocking()) {
                 return false;
             }
-            if (grid[x][y].getBarrier(Direction.East).isBlocking()) {
-                return false;
-            }
-            return true;
+            return !grid[x][y].getBarrier(Direction.East).isBlocking();
         } else if (direction == Direction.South) {
             if (y == height - 1) {
                 return false;
@@ -127,10 +121,7 @@ public class SensorSimulator {
             if (grid[x][y + 1].getEnvironmentObject().isBlocking()) {
                 return false;
             }
-            if (grid[x][y].getBarrier(Direction.South).isBlocking()) {
-                return false;
-            }
-            return true;
+            return !grid[x][y].getBarrier(Direction.South).isBlocking();
         } else {
             if (x == 0) {
                 return false;
@@ -138,10 +129,7 @@ public class SensorSimulator {
             if (grid[x - 1][y].getEnvironmentObject().isBlocking()) {
                 return false;
             }
-            if (grid[x][y].getBarrier(Direction.West).isBlocking()) {
-                return false;
-            }
-            return true;
+            return !grid[x][y].getBarrier(Direction.West).isBlocking();
         }
     }
 
@@ -222,7 +210,6 @@ public class SensorSimulator {
                 move(Direction.East);
                 break;
             default:
-                return;
         }
 
     }
@@ -308,7 +295,7 @@ public class SensorSimulator {
 
     public boolean getDirtSensor() {
         if (grid[x][y].getEnvironmentObject() instanceof Floor) {
-            if (((Floor) grid[x][y].getEnvironmentObject()).getDirtUnits() > 0) {
+            if (grid[x][y].getEnvironmentObject().getDirtUnits() > 0) {
                 return true;
             }
         }

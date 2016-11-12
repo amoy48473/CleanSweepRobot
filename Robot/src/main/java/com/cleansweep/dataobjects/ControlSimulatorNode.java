@@ -52,9 +52,9 @@ public class ControlSimulatorNode {
             case West:
                 leftBlocking = true;
                 break;
-            default: return;
+            default:
         }
-    };
+    }
 
     public void setOpen(Direction direction){
         switch (direction){
@@ -70,9 +70,9 @@ public class ControlSimulatorNode {
             case West:
                 leftBlocking = false;
                 break;
-            default: return;
+            default:
         }
-    };
+    }
 
 
     public boolean isDownBlocking() {

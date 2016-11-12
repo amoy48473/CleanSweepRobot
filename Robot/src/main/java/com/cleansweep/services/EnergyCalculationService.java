@@ -4,6 +4,7 @@ import com.cleansweep.dataobjects.ControlSimulatorNode;
 
 /**
  * Created by amoy on 11/6/2016.
+ * Interface for Eneergy Calcuation Service
  */
 public interface EnergyCalculationService {
 

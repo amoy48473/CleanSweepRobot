@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 
 /**
  * Created by amoy on 11/6/2016.
+ * Power Calculator Test
  */
 public class PowerCalculationTest {
 

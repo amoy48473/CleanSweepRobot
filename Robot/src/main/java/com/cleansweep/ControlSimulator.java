@@ -14,9 +14,11 @@ import java.util.*;
 
 /**
  * Created by allenmoy on 10/10/16.
+ * Control simulator class that represents the Robot Object
  */
 public class ControlSimulator implements FrameListener{
 
+    private int delayTime;
 
     private SensorSimulator sensorSimulator;
 
@@ -44,7 +46,7 @@ public class ControlSimulator implements FrameListener{
     private Point travelingTo;
 
  
-    public ControlSimulator(SensorSimulator sensorSimulator){
+    public ControlSimulator(SensorSimulator sensorSimulator, int delayTime){
         this.sensorSimulator = sensorSimulator;
         this.dirtCapacity = new DirtCapacity();
         this.powerLevel = new PowerLevel();
@@ -64,6 +66,8 @@ public class ControlSimulator implements FrameListener{
                 nodes[i][j] = new ControlSimulatorNode();
             }
         }
+
+        this.delayTime = delayTime;
     }
 
     /**
@@ -238,7 +242,6 @@ public class ControlSimulator implements FrameListener{
 
         if (path == null) return null;
 
-        System.out.println(currentLocation.getX()+ "," + currentLocation.getY());
 
         // If returning takes the robot to below the critical power level, return at once
             if (currentPowerLevel.getPowerLevel() - leastEnergy <= PowerLevel.CRITICAL_POWER_LEVEL ||
@@ -251,7 +254,7 @@ public class ControlSimulator implements FrameListener{
     }
 
     private void moveSensorSimulator(SensorSimulator sim, Direction direction) throws InterruptedException, BumpException, InvalidEnvironmentObjectException, IOException, OutOfPowerException {
-        Thread.sleep(100);
+        Thread.sleep(getDelayTime());
 
 
         activityLogData.activityLog.write(new Date() + " Updating power level: " + powerLevel.getPowerLevel() +
@@ -425,13 +428,9 @@ public class ControlSimulator implements FrameListener{
      * @return
      */
     private boolean notOutOfBounds(Point nextPoint) {
-        if (nextPoint.getX() == sensorSimulator.getWidth()
+        return !(nextPoint.getX() == sensorSimulator.getWidth()
                 || nextPoint.getX() < 0 || nextPoint.getY() == sensorSimulator.getHeight()
-                || nextPoint.getY() < 0
-                ){
-            return false;
-        }
-        return true;
+                || nextPoint.getY() < 0);
     }
 
     /**
@@ -603,5 +602,9 @@ public class ControlSimulator implements FrameListener{
 
     public void updatePanel() {
         jFrame.repaint();
+    }
+
+    public int getDelayTime() {
+        return delayTime;
     }
 }

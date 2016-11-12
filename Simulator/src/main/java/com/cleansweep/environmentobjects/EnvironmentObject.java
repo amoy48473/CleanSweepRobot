@@ -1,9 +1,9 @@
 package com.cleansweep.environmentobjects;
 
 public interface EnvironmentObject {
-	public int getDirtUnits();
-	public boolean isBlocking();
-	public boolean isChargingStation();
-	public boolean isFloor();
+	int getDirtUnits();
+	boolean isBlocking();
+	boolean isChargingStation();
+	boolean isFloor();
 
 }

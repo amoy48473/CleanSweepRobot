@@ -5,6 +5,7 @@ import com.cleansweep.enums.FloorType;
 
 /**
  * Created by amoy on 11/6/2016.
+ * Service class to be used for energy calculation
  */
 public class EnergyCalculationServiceImpl implements EnergyCalculationService{
 

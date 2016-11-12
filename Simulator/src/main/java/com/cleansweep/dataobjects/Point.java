@@ -5,6 +5,7 @@ package com.cleansweep.dataobjects;
 
 /**
  * Created by allenmoy on 10/10/16.
+ * Point that represents a coordinate
  */
 public class Point {
 

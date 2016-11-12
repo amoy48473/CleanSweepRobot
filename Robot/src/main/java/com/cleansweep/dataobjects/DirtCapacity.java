@@ -40,7 +40,7 @@ public class DirtCapacity {
     public void emptyDirtTray(FrameListener frameListener) throws InterruptedException {
 
         while (dirtCapacity > 0){
-            Thread.sleep(100);
+            Thread.sleep(frameListener.getDelayTime());
             dirtCapacity--;
             frameListener.updatePanel();
         }
